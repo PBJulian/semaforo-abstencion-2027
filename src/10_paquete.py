@@ -151,7 +151,9 @@ def empaquetar():
                 for f in files:
                     if f.name == ".DS_Store" or "__pycache__" in f.parts:
                         continue
-                    rel = f.name if src.is_file() else f.relative_to(src.parent)
+                    # Si la carpeta tiene un solo directorio, su contenido va directo (sin subcarpeta redundante)
+                    raiz = src if len(items) == 1 else src.parent
+                    rel = f.name if src.is_file() else f.relative_to(raiz)
                     z.write(f, f"{base}/{carpeta}/{rel}")
     print(f"Zip: {ZIP} ({ZIP.stat().st_size / 1e6:.1f} MB)")
     with zipfile.ZipFile(ZIP) as z:
