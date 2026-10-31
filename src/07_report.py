@@ -744,13 +744,15 @@ def recomendaciones(R, c):
          f"el efecto en la población en riesgo es más del doble. Los {c['n_foco']} municipios rojos y naranjas concentran "
          f"{c['rn_ln'] / 1e6:.1f} millones de electores, y los 100 más grandes reúnen el {100 * c['rn_100_share']:.0f}%. Cada Junta "
          f"Distrital puede empezar por sus secciones prioritarias, donde se concentran los jóvenes que se abstendrían."),
-        ("Retener el voto juvenil, no solo motivar el primer voto. ",
+        ("Retener el voto juvenil con educación cívica en las secciones prioritarias. ",
          "Las personas de 18 y 19 años participan más que las de 20 a 29. Se sugieren acciones en universidades, centros de "
-         "trabajo y plataformas digitales, dirigidas a personas de 20 a 29 años en municipios rojos y naranjas."),
-        ("Promover la actualización del domicilio en zonas urbanas de alta movilidad. ",
+         "trabajo y plataformas digitales, dirigidas a personas de 20 a 29 años en las secciones que concentran a los "
+         "jóvenes que se abstendrían."),
+        ("Llevar Módulos de Atención Ciudadana itinerantes a las zonas de alta movilidad. ",
          "En las ciudades fronterizas, turísticas y periferias metropolitanas, parte de la abstención registrada puede deberse "
-         "a personas que ya no viven en la sección de su credencial. Las campañas de actualización del domicilio antes del "
-         "cierre de la lista nominal atacan una causa estructural y mejoran la calidad del padrón."),
+         "a personas que ya no viven en la sección de su credencial. Módulos itinerantes en sus secciones prioritarias, antes "
+         "del cierre de la lista nominal, atacan esa causa y mejoran el padrón; donde hay población flotante, conviene "
+         "reforzar las casillas especiales."),
         ("Diseñar un enfoque intercultural para los municipios pequeños de Oaxaca. ",
          "En los municipios que se rigen por sistemas normativos indígenas, la promoción del voto federal debe coordinarse con "
          "las autoridades comunitarias y con el organismo electoral local, con materiales en lenguas indígenas y respeto a "

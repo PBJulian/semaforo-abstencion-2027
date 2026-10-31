@@ -40,6 +40,7 @@ entregables/        reporte (DOCX/PDF), mapa de escenarios (HTML), capas GeoJSON
 | `src/04c_operativo.py` | Proyección por sección y por distrito federal (marco 2023), secciones prioritarias por distrito y matriz de acción. |
 | `src/05_export_figures.py` | Base de datos anonimizada (CSV, y XLSX con diccionario de variables) y figuras del reporte. |
 | `src/06_maps.py` | Tablero de escenarios (HTML autocontenido, a partir de `src/tablero_template.html` con Leaflet 1.9.4 incrustado desde `src/vendor/`) y capas GeoJSON/GeoPackage. Verifica que la simulación del tablero reproduzca las cifras del pipeline. |
+| `src/08_presentacion.py` | Presentación ejecutiva (10 láminas, PPTX y PDF) con guion del pitch en las notas. |
 | `src/07_report.py` | Genera el reporte metodológico (DOCX) a partir de los resultados, para que sus cifras coincidan con la base y el mapa. |
 
 ## Cómo reproducir
