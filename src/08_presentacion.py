@@ -352,10 +352,10 @@ def main():
              f"Probado hacia atrás: con datos hasta 2018, el semáforo habría anticipado {retro.loc[2021, 'Decil_real_en_rojo_o_naranja_%'] / 10:.0f} de cada 10 municipios de mayor abstención en 2021",
              FUENTE_CCPC + ". Backtest temporal: entrenar hasta T-3 y predecir T, sin información posterior")
     trio = [(f"{retro.loc[2021, 'Decil_real_en_rojo_o_naranja_%']:.0f}% · {retro.loc[2024, 'Decil_real_en_rojo_o_naranja_%']:.0f}%",
-             "de los municipios con mayor abstención real (decil superior) estaban en rojo o naranja · 2021 y 2024"),
+             f"de los {int(retro.loc[2021, 'Municipios_decil_real'])} municipios que más se abstuvieron en la realidad (el 10% más alto) ya estaban en rojo o naranja · 2021 y 2024"),
             (f"{retro.loc[2021, 'Rojos_que_quedaron_en_cuartil_real_%']:.0f}% · {retro.loc[2024, 'Rojos_que_quedaron_en_cuartil_real_%']:.0f}%",
-             "de los marcados en rojo terminaron en el cuartil de mayor abstención · 2021 y 2024"),
-            ("< 2%", "de los municipios en verde terminó entre los de mayor abstención")]
+             "de los municipios marcados en rojo terminaron, en efecto, entre el 25% con más abstención · 2021 y 2024"),
+            ("< 2%", "de los municipios en verde terminó en el 10% con más abstención: casi ningún caso grave queda sin marcar")]
     for k, (big, lab) in enumerate(trio):
         x = X0 + k * 4.1
         D.stat(s, x, 2.05, 3.8, big, lab, big_size=40, label_size=14)
@@ -364,7 +364,7 @@ def main():
     pasos = [
         ("Modelo híbrido", "Ridge + Gradient Boosting combinados con la persistencia histórica de cada municipio."),
         ("Sin información del futuro", "Cada elección se predice solo con datos publicados antes de ella."),
-        (f"Error de {c['mae21']:.1f} y {c['mae24']:.1f} pp", f"en 2021 y 2024 (ponderado por electores); ubica al {c['prec_ln']:.0f}% de las personas del quintil de mayor riesgo."),
+        (f"Error de {c['mae21']:.1f} y {c['mae24']:.1f} pp", f"en 2021 y 2024 (ponderado por electores); ubica al {c['prec_ln']:.0f}% de las personas del 20% de municipios con más abstención."),
     ]
     for k, (t1, t2) in enumerate(pasos):
         x = X0 + k * 4.1
@@ -379,7 +379,12 @@ def main():
     D.chrome(s, "Cuánto rinde",
              f"Con el mismo presupuesto, priorizar con el semáforo reduce {c['red1'] / c['red2']:.1f} veces más la abstención de la población en riesgo",
              "Simulación Data Insert sobre la proyección 2027. Efecto supuesto: +5 pp en la participación de 18–29 años donde se interviene")
-    D.image(s, FIG / "deck_presupuesto.png", X0, 1.95, w=7.4)
+    D.image(s, FIG / "deck_presupuesto.png", X0, 1.85, w=7.0)
+    D.text(s, X0, 6.0, 7.2, 0.8,
+           [[("Supuesto: ", {"bold": True, "color": NAVY}),
+             ("la campaña eleva 5 puntos la participación de jóvenes de 18 a 29 años donde se aplica. Con efectos de 2 a 10 "
+              "puntos la ventaja de priorizar se mantiene. Población en riesgo: electores de municipios en rojo y naranja.", {"color": GRAY})]],
+           size=12, spacing=1.1)
     xs = X0 + 7.9
     D.stat(s, xs, 1.95, 4.2, f"{c['red1']:.2f} vs {c['red2']:.2f} pp", "reducción de abstención en municipios rojos y naranjas: priorizado vs uniforme", big_size=34)
     D.stat(s, xs, 3.55, 4.2, f"{res.loc['E1', 'Votos_recuperados'] / 1e3:,.0f} mil", "votos recuperados en ambos casos: lo que cambia es dónde", big_size=34, color=BLUE)
@@ -422,7 +427,7 @@ def main():
         D.text(s, X0 + 8.9, y, 1.45, 0.9, f"{int(mat.loc[clave, 'Municipios'])}", size=18, bold=True, align=PP_ALIGN.RIGHT, anchor=MSO_ANCHOR.MIDDLE)
         D.text(s, X0 + 10.45, y, 1.65, 0.9, f"{mat.loc[clave, 'Electores_mill']:.1f} M", size=18, bold=True, align=PP_ALIGN.RIGHT, anchor=MSO_ANCHOR.MIDDLE)
         y += 1.08
-    D.text(s, X0, 6.5, TW, 0.35, "Todas arrancan como piloto evaluable: grupos de comparación medidos con los Conteos Censales de 2027.",
+    D.text(s, X0, 6.5, TW, 0.35, "Cifras de los 614 municipios en rojo y naranja. Todo arranca como piloto evaluable, medido con los Conteos Censales 2027.",
            size=13, color=NAVY, bold=True)
     s.notes_slide.notes_text_frame.text = (
         "No proponemos inventar programas. El INE ya tiene módulos de atención ciudadana, casillas especiales, educación cívica "
@@ -437,6 +442,8 @@ def main():
              f"En cada distrito, una de cada cinco secciones concentra la mitad de los jóvenes que se abstendrían",
              FUENTE_CCPC + "; proyección por sección y distrito federal (marco distrital 2023, vigente en 2027)")
     D.image(s, FIG / "deck_tablero_distrito.png", X0, 1.95, w=8.1)
+    D.text(s, X0, 4.8, 8.1, 0.35, "Vista del tablero: distrito 04 de Baja California, con sus secciones ordenadas por número de jóvenes que se abstendrían.",
+           size=11, color=GRAY)
     xs = X0 + 8.5
     D.stat(s, xs, 1.95, 3.6, f"{c['mitad']:.0f} de {c['secc']:.0f}", "secciones reúnen la mitad de los jóvenes que se abstendrían, en el distrito típico", big_size=34)
     D.stat(s, xs, 3.55, 3.6, f"{c['dist_n'].get('Rojo', 0)} + {c['dist_n'].get('Naranja', 0)}", "distritos federales en rojo y naranja de 300", big_size=34, color=BLUE)
