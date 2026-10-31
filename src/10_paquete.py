@@ -26,6 +26,8 @@ SOFFICE = "/Applications/LibreOffice.app/Contents/MacOS/soffice"
 ZIP = ROOT / "Data_Insert_Reto2_Prediccion_riesgo_abstencion.zip"
 REPO = "https://github.com/PBJulian/semaforo-abstencion-2027"
 NAVY = RGBColor(0x0B, 0x25, 0x45)
+# Extensiones que Gmail rechaza dentro de un zip
+BLOQUEADAS = {".js", ".jse", ".exe", ".bat", ".cmd", ".com", ".jar", ".vbs", ".vbe", ".ps1", ".msi", ".scr", ".dll", ".lnk", ".wsf", ".hta"}
 
 # carpeta del zip -> archivos (rutas relativas al proyecto)
 ESTRUCTURA = {
@@ -149,7 +151,8 @@ def empaquetar():
                 src = ROOT / it
                 files = [src] if src.is_file() else sorted(p for p in src.rglob("*") if p.is_file())
                 for f in files:
-                    if f.name == ".DS_Store" or "__pycache__" in f.parts:
+                    # Gmail bloquea adjuntos con .js (Leaflet ya va incrustado en el HTML del tablero)
+                    if f.name == ".DS_Store" or "__pycache__" in f.parts or f.suffix.lower() in BLOQUEADAS:
                         continue
                     # Si la carpeta tiene un solo directorio, su contenido va directo (sin subcarpeta redundante)
                     raiz = src if len(items) == 1 else src.parent
