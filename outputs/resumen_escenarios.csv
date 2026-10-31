@@ -1,0 +1,4 @@
+Escenario,Efecto_pp,Abst_nacional_%,Abst_zona_riesgo_%,Abst_resto_%,Votos_recuperados,Desv_est_abst_pp,Brecha_p90_p10_pp,Mun_Verde,LN_Verde_mill,Mun_Amarillo,LN_Amarillo_mill,Mun_Naranja,LN_Naranja_mill,Mun_Rojo,LN_Rojo_mill
+E0,5.0,47.88,55.8,41.619,0.0,9.343,34.441,1241,17.483,622,37.434,376,29.775,238,13.638
+E1,5.0,47.283,54.449,41.619,586495.65,8.841,33.112,1241,17.483,702,43.931,344,26.158,190,10.758
+E2,5.0,47.283,55.191,41.032,586495.65,9.342,34.474,1286,18.76,611,39.036,363,28.26,217,12.275

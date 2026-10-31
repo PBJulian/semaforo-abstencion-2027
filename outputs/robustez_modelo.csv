@@ -1,0 +1,21 @@
+Variante,Evaluacion,Modelo,MAE_pp,MAE_pond_LN_pp,RMSE_pp,R2,Spearman,Precision_top20,Precision_top20_LN
+A · CONEVAL 2020 fijo,2021,Ensamble,6.313,3.299,8.848,0.584,0.779,0.6,0.843
+A · CONEVAL 2020 fijo,2021,Hibrido,6.081,3.137,8.366,0.628,0.803,0.657,0.814
+A · CONEVAL 2020 fijo,2024,Ensamble,3.713,2.684,5.113,0.745,0.847,0.73,0.818
+A · CONEVAL 2020 fijo,2024,Hibrido,3.739,2.476,5.166,0.74,0.862,0.748,0.815
+B · Sin CONEVAL,2021,Ensamble,6.273,3.322,8.794,0.589,0.788,0.606,0.846
+B · Sin CONEVAL,2021,Hibrido,6.049,3.144,8.322,0.632,0.808,0.659,0.816
+B · Sin CONEVAL,2024,Ensamble,3.799,2.771,5.208,0.735,0.842,0.71,0.786
+B · Sin CONEVAL,2024,Hibrido,3.766,2.498,5.192,0.737,0.86,0.738,0.799
+C · CONEVAL por edición,2021,Ensamble,6.251,3.339,8.75,0.593,0.79,0.619,0.839
+C · CONEVAL por edición,2021,Hibrido,6.01,3.139,8.287,0.635,0.809,0.661,0.814
+C · CONEVAL por edición,2024,Ensamble,3.728,2.728,5.117,0.745,0.845,0.718,0.799
+C · CONEVAL por edición,2024,Hibrido,3.71,2.48,5.129,0.743,0.862,0.746,0.811
+D · C + rezago espacial,2021,Ensamble,6.243,3.33,8.743,0.594,0.792,0.615,0.845
+D · C + rezago espacial,2021,Hibrido,5.993,3.13,8.269,0.636,0.81,0.663,0.833
+D · C + rezago espacial,2024,Ensamble,3.734,2.729,5.112,0.745,0.846,0.714,0.8
+D · C + rezago espacial,2024,Hibrido,3.709,2.483,5.126,0.744,0.862,0.748,0.813
+E · D + ponderación,2021,Ensamble,5.964,3.089,8.417,0.623,0.804,0.619,0.832
+E · D + ponderación,2021,Hibrido,5.863,3.026,8.124,0.649,0.815,0.665,0.816
+E · D + ponderación,2024,Ensamble,3.697,2.446,5.086,0.748,0.853,0.73,0.813
+E · D + ponderación,2024,Hibrido,3.682,2.33,5.108,0.745,0.864,0.753,0.818

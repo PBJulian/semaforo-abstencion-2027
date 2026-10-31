@@ -1,0 +1,534 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semáforo de Abstención 2027</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<style>
+:root {
+  --page: #f6f5f8; --surface: #fcfcfb; --ink: #0b0b0b; --ink2: #52514e; --muted: #8a8893;
+  --line: #e4e2ea; --axis: #c3c2b7; --accent: #4a2b7a; --accent-soft: #efe9f7;
+  --s1: #2a78d6; --s2: #eb6834;
+  --verde: #0ca30c; --amarillo: #fab219; --naranja: #ec835a; --rojo: #d03b3b; --sindato: #d9d7de;
+  --radius: 10px;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--ink);
+  font: 14px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+header { background: var(--accent); color: #fff; padding: 18px 24px 16px; }
+header .row { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap; }
+header h1 { margin: 0; font-size: 22px; letter-spacing: -0.01em; }
+header p { margin: 4px 0 0; opacity: .85; font-size: 13px; }
+header .team { font-size: 12px; opacity: .85; text-align: right; }
+main { max-width: 1480px; margin: 0 auto; padding: 16px; display: grid; gap: 16px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px; min-width: 0; }
+.card h2 { margin: 0 0 4px; font-size: 15px; color: var(--accent); }
+.card .sub { margin: 0 0 12px; color: var(--ink2); font-size: 12.5px; }
+/* KPIs */
+.kpis { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
+.kpi { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 12px 14px; }
+.kpi .lab { font-size: 12px; color: var(--ink2); }
+.kpi .val { font-size: 26px; font-weight: 700; letter-spacing: -0.02em; margin-top: 2px; font-variant-numeric: tabular-nums; }
+.kpi .delta { font-size: 12px; color: var(--ink2); font-variant-numeric: tabular-nums; }
+.kpi .delta b { color: #006300; }
+/* layout */
+.top { display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: 16px; }
+.controls { display: flex; flex-direction: column; gap: 16px; }
+.ctl label, .ctl .lab { display: block; font-weight: 600; font-size: 13px; margin-bottom: 6px; }
+.ctl .hint { font-size: 12px; color: var(--ink2); margin-top: 4px; }
+.seg { display: grid; grid-template-columns: 1fr; gap: 6px; }
+.seg button { text-align: left; border: 1px solid var(--line); background: #fff; border-radius: 8px; padding: 8px 10px;
+  font: inherit; font-size: 13px; cursor: pointer; color: var(--ink); }
+.seg button small { display: block; color: var(--ink2); font-size: 11.5px; }
+.seg button[aria-pressed="true"] { border-color: var(--accent); background: var(--accent-soft); box-shadow: inset 3px 0 0 var(--accent); }
+input[type=range] { width: 100%; accent-color: var(--accent); }
+.rangeval { float: right; font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; }
+select, input[type=search] { width: 100%; padding: 8px 10px; border: 1px solid var(--line); border-radius: 8px; font: inherit; background: #fff; }
+.check { display: flex; gap: 8px; align-items: flex-start; font-size: 13px; }
+.legend { display: grid; gap: 6px; font-size: 12.5px; }
+.legend .it { display: flex; align-items: center; gap: 8px; }
+.sw { width: 14px; height: 14px; border-radius: 3px; flex: none; }
+.mapcard { display: flex; }
+.maps { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; flex: 1; }
+.mapwrap { position: relative; display: flex; }
+.mapwrap .ttl { position: absolute; z-index: 500; top: 10px; left: 50px; background: rgba(252,252,251,.94);
+  padding: 5px 10px; border-radius: 6px; font-weight: 600; font-size: 13px; box-shadow: 0 1px 3px rgba(0,0,0,.15); max-width: calc(100% - 60px); }
+.map { flex: 1; min-height: 560px; border-radius: 8px; border: 1px solid var(--line); background: #e9e8ee; }
+.grid2 { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; }
+/* ficha */
+.ficha .empty { color: var(--ink2); font-size: 13px; padding: 24px 0; text-align: center; }
+.ficha h3 { margin: 0; font-size: 17px; }
+.ficha .edo { color: var(--ink2); font-size: 13px; margin-bottom: 10px; }
+.facts { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 8px; margin: 10px 0; }
+.fact { background: var(--page); border-radius: 8px; padding: 8px 10px; }
+.fact .l { font-size: 11.5px; color: var(--ink2); }
+.fact .v { font-size: 16px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.chip { display: inline-flex; align-items: center; gap: 6px; padding: 2px 8px 2px 6px; border-radius: 999px;
+  font-size: 12px; font-weight: 600; background: var(--page); white-space: nowrap; }
+.chip i { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+svg text { font-family: inherit; }
+/* tabla */
+table { width: 100%; border-collapse: collapse; font-size: 12.5px; font-variant-numeric: tabular-nums; }
+th { text-align: left; color: var(--ink2); font-weight: 600; border-bottom: 1px solid var(--axis); padding: 6px 6px; position: sticky; top: 0; background: var(--surface); }
+td { border-bottom: 1px solid var(--line); padding: 6px; }
+td.n, th.n { text-align: right; }
+tbody tr { cursor: pointer; }
+tbody tr:hover { background: var(--accent-soft); }
+.tablewrap { max-height: 380px; overflow: auto; }
+.distgrid { display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: 16px; }
+.accion { font-size: 12px; color: var(--accent); font-weight: 600; }
+@media (max-width: 1100px) { .distgrid { grid-template-columns: minmax(0, 1fr); } }
+.bars .row { display: grid; grid-template-columns: 110px 1fr; gap: 10px; align-items: center; margin: 8px 0; font-size: 12.5px; }
+.bars .bar { display: flex; height: 26px; border-radius: 6px; overflow: hidden; gap: 2px; background: var(--surface); }
+.bars .bar div { display: flex; align-items: center; justify-content: center; font-size: 11.5px; font-weight: 600; color: #fff; min-width: 0; }
+.tip { position: fixed; pointer-events: none; z-index: 2000; background: #1d1b22; color: #fff; padding: 6px 9px; border-radius: 6px;
+  font-size: 12px; display: none; max-width: 260px; }
+.note { font-size: 12px; color: var(--ink2); }
+.note p { margin: 4px 0; }
+footer { max-width: 1480px; margin: 0 auto; padding: 0 16px 24px; }
+.leaflet-tooltip { font: 12.5px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; }
+@media (max-width: 1100px) {
+  .kpis { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .top, .grid2 { grid-template-columns: minmax(0,1fr); }
+  .maps { grid-template-columns: minmax(0,1fr); }
+  .map { min-height: 420px; }
+}
+@media (max-width: 520px) {
+  main { padding: 16px; }
+  header { padding: 16px; }
+  .kpi .val { font-size: 21px; }
+  .facts { grid-template-columns: repeat(2, minmax(0,1fr)); }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="row">
+    <div>
+      <h1>Semáforo de Riesgo de Abstención 2027</h1>
+      <p>Simulador municipal de escenarios para la elección federal intermedia · Datos: INE (CCPC 2009–2024), CONEVAL, INEGI</p>
+    </div>
+    <div class="team">Equipo Data Insert<br>Hackea la participación · Reto 2</div>
+  </div>
+</header>
+
+<main>
+  <section class="kpis" id="kpis" aria-label="Indicadores principales"></section>
+
+  <section class="top">
+    <div class="card controls">
+      <div class="ctl">
+        <span class="lab">Escenario</span>
+        <div class="seg" id="seg">
+          <button data-s="E1" aria-pressed="true">Intervención focalizada<small>La campaña se asigna primero a los municipios de mayor riesgo</small></button>
+          <button data-s="E2" aria-pressed="false">Intervención uniforme<small>El mismo presupuesto, repartido en todo el país</small></button>
+          <button data-s="E0" aria-pressed="false">Sin intervención<small>Escenario inercial (proyección del modelo)</small></button>
+        </div>
+      </div>
+      <div class="ctl">
+        <label for="efecto">Efecto de la campaña <span class="rangeval" id="efectoV"></span></label>
+        <input type="range" id="efecto" min="1" max="10" step="0.5">
+        <div class="hint">Aumento supuesto de la participación juvenil (18–29 años) donde se aplica.</div>
+      </div>
+      <div class="ctl">
+        <label for="pres">Presupuesto <span class="rangeval" id="presV"></span></label>
+        <input type="range" id="pres" min="0" max="100" step="1">
+        <div class="hint">% de las personas jóvenes del país que alcanza la campaña. El valor inicial cubre los municipios rojos y naranjas.</div>
+      </div>
+      <div class="ctl">
+        <label for="edo">Entidad</label>
+        <select id="edo"><option value="0">Todo el país</option></select>
+      </div>
+      <div class="ctl">
+        <label for="buscar">Buscar municipio</label>
+        <input type="search" id="buscar" list="munlist" placeholder="Ej. Tijuana">
+        <datalist id="munlist"></datalist>
+      </div>
+      <label class="check"><input type="checkbox" id="resaltar" checked> Resaltar en el mapa derecho los municipios que bajan de color</label>
+      <div class="ctl">
+        <span class="lab">Abstención proyectada 2027</span>
+        <div class="legend" id="legend"></div>
+      </div>
+    </div>
+
+    <div class="card mapcard">
+      <div class="maps">
+        <div class="mapwrap"><div class="ttl">Sin intervención</div><div id="mapA" class="map" role="img" aria-label="Mapa del semáforo sin intervención"></div></div>
+        <div class="mapwrap"><div class="ttl" id="ttlB"></div><div id="mapB" class="map" role="img" aria-label="Mapa del semáforo con el escenario elegido"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="grid2">
+    <div class="card ficha" id="ficha">
+      <h2>Ficha municipal</h2>
+      <div class="empty">Haz clic en un municipio del mapa o de la tabla, o búscalo por nombre.</div>
+    </div>
+    <div class="card">
+      <h2>¿Cuánto rinde el presupuesto?</h2>
+      <p class="sub">Reducción de la abstención en la población en riesgo (municipios rojos y naranjas sin intervención), según el presupuesto, con el efecto elegido.</p>
+      <div id="curva"></div>
+    </div>
+  </section>
+
+  <section class="grid2">
+    <div class="card">
+      <h2>Distribución del semáforo</h2>
+      <p class="sub" id="barsSub"></p>
+      <div class="bars" id="bars"></div>
+      <div class="note" id="barsNote"></div>
+    </div>
+    <div class="card">
+      <h2>Municipios prioritarios</h2>
+      <p class="sub" id="tablaSub">Municipios en rojo sin intervención, ordenados por número de electores.</p>
+      <div class="tablewrap"><table id="tabla"><thead><tr>
+        <th>Municipio</th><th class="n">Electores</th><th class="n">2021</th><th class="n">2027</th><th class="n">Con interv.</th><th>Semáforo</th><th>Acción sugerida</th>
+      </tr></thead><tbody></tbody></table></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Vista por distrito federal · secciones prioritarias</h2>
+    <p class="sub">Para cada Junta Distrital (marco distrital 2023, vigente en 2027): la proyección sin intervención y las secciones donde se concentran las personas jóvenes que se abstendrían. Prioridad = electores de 18 a 29 años × abstención juvenil proyectada.</p>
+    <div class="distgrid">
+      <div><label for="distSel" class="lab" style="font-weight:600;display:block;margin-bottom:6px">Distrito federal</label>
+        <select id="distSel"></select><div id="distInfo" style="margin-top:12px"></div></div>
+      <div class="tablewrap"><table id="tablaSec"><thead><tr>
+        <th>#</th><th>Sección</th><th>Municipio</th><th>Tipo</th><th class="n">Electores 18–29</th><th class="n">Abst. juvenil 2027</th><th class="n">Jóvenes que se abstendrían</th><th>Semáforo</th>
+      </tr></thead><tbody></tbody></table></div>
+    </div>
+  </section>
+
+  <section class="card note">
+    <h2>Cómo se calcula</h2>
+    <p><b>Proyección.</b> Abstención 2027 = abstención de la entidad en 2021 (última intermedia, concurrente en las 32 entidades) + desviación municipal proyectada por un modelo híbrido (Ridge y Gradient Boosting combinados con persistencia histórica), validado con un backtest temporal sobre 2021 y 2024. El intervalo es conformal al 90%, calibrado con los errores de la intermedia de 2021.</p>
+    <p><b>Semáforo.</b> Umbrales absolutos de abstención proyectada: <span id="cortesTxt"></span>. Los umbrales no cambian entre escenarios, así que una intervención puede bajar de color a un municipio.</p>
+    <p><b>Intervención.</b> Una campaña juvenil eleva la participación de las personas de 18 a 29 años en el porcentaje elegido, en proporción a la cobertura de cada municipio. Con un efecto lineal, ambas estrategias recuperan los mismos votos; lo que cambia es dónde. Por eso se compara la reducción de la abstención en la población en riesgo.</p>
+    <p>Datos agregados y públicos, sin información personal. Mapa base: Esri, HERE, Garmin, © colaboradores de OpenStreetMap. Geometría: INEGI, Marco Geoestadístico.</p>
+  </section>
+</main>
+<footer class="note">Equipo Data Insert · Aldo Sebastian Altamirano Vázquez · Carlo Kiliano Ferrera Guadarrama · Isaac Pancardo Botello · José Julián Pérez Bustamante</footer>
+<div class="tip" id="tip"></div>
+
+<script>
+const D = /*__DATA__*/null;
+const GEO = /*__GEO__*/null;
+
+const COL = ["#0ca30c", "#fab219", "#ec835a", "#d03b3b"];
+const NIV = ["Verde", "Amarillo", "Naranja", "Rojo"];
+const N = D.nom.length;
+const CUT = D.cortes;
+const fmt = (v, d = 1) => v.toLocaleString("es-MX", { minimumFractionDigits: d, maximumFractionDigits: d });
+const fmt0 = v => Math.round(v).toLocaleString("es-MX").replace("-", "−");
+const pct = (v, d = 1) => fmt(100 * v, d) + "%";
+const nivel = a => (a >= CUT[0]) + (a >= CUT[1]) + (a >= CUT[2]);
+const chip = n => `<span class="chip"><i style="background:${COL[n]}"></i>${NIV[n]}</span>`;
+
+// Orden de prioridad: mayor abstención proyectada primero (igual que 04_scenarios.py)
+const ORDEN = [...Array(N).keys()].sort((i, j) => D.a0[j] - D.a0[i]);
+const JOV_TOT = D.lnj.reduce((s, v) => s + v, 0);
+const NIV0 = D.a0.map(nivel);
+const RIESGO = NIV0.map(n => n >= 2);
+
+const state = { s: "E1", efecto: D.efecto_base, pres: D.pres_e1, edo: 0, sel: null, resaltar: true };
+
+function cobertura(s, pres) {
+  const c = new Float64Array(N);
+  if (s === "E2") c.fill(pres);
+  if (s === "E1") {
+    let rest = pres * JOV_TOT;
+    for (const i of ORDEN) { c[i] = Math.min(1, Math.max(0, rest / Math.max(D.lnj[i], 1))); rest -= D.lnj[i]; }
+  }
+  return c;
+}
+function simular(s, efecto, pres) {
+  const cob = cobertura(s, pres), a = new Float64Array(N), v = new Float64Array(N);
+  for (let i = 0; i < N; i++) {
+    const ej = Math.min(efecto * cob[i], D.aj[i]);
+    a[i] = D.a0[i] - ej * D.shj[i];
+    v[i] = ej * D.lnj[i];
+  }
+  return { a, v, niv: Array.from(a, nivel) };
+}
+function wavg(x, w, m) { let s = 0, t = 0; for (let i = 0; i < N; i++) if (m(i)) { s += x[i] * w[i]; t += w[i]; } return t ? s / t : NaN; }
+function resumen(r, edo) {
+  const inE = i => edo === 0 || D.edo[i] === edo;
+  const out = { abst: wavg(r.a, D.ln, inE), abst0: wavg(D.a0, D.ln, inE), rojo: 0, rojo0: 0, lnRojo: 0, lnRojo0: 0, votos: 0,
+                zona: wavg(r.a, D.ln, i => inE(i) && RIESGO[i]), zona0: wavg(D.a0, D.ln, i => inE(i) && RIESGO[i]),
+                cnt: [0, 0, 0, 0], cnt0: [0, 0, 0, 0], lnN: [0, 0, 0, 0], lnN0: [0, 0, 0, 0] };
+  for (let i = 0; i < N; i++) {
+    if (!inE(i)) continue;
+    out.votos += r.v[i];
+    out.cnt[r.niv[i]]++; out.cnt0[NIV0[i]]++;
+    out.lnN[r.niv[i]] += D.ln[i]; out.lnN0[NIV0[i]] += D.ln[i];
+  }
+  out.rojo = out.cnt[3]; out.rojo0 = out.cnt0[3]; out.lnRojo = out.lnN[3]; out.lnRojo0 = out.lnN0[3];
+  return out;
+}
+
+// ---------------------------------------------------------------- mapas
+const tiles = () => L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}",
+  { attribution: "Esri, HERE, Garmin, © OpenStreetMap", maxZoom: 16 });
+const opts = { preferCanvas: true, zoomSnap: 0.25, minZoom: 4 };
+const mapA = L.map("mapA", opts).setView([23.8, -102.3], 5);
+const mapB = L.map("mapB", opts).setView([23.8, -102.3], 5);
+tiles().addTo(mapA); tiles().addTo(mapB);
+let syncing = false;
+function sync(a, b) { a.on("move", () => { if (syncing) return; syncing = true; b.setView(a.getCenter(), a.getZoom(), { animate: false }); syncing = false; }); }
+sync(mapA, mapB); sync(mapB, mapA);
+const MX = [[14.4, -117.5], [32.8, -86.6]];
+function encuadrar() { mapA.invalidateSize(); mapB.invalidateSize(); mapA.fitBounds(MX); }
+
+let R = simular(state.s, state.efecto, state.pres);
+function estilo(which) {
+  return f => {
+    const i = f.properties.i;
+    const n = which === "A" ? NIV0[i] : R.niv[i];
+    const sel = state.sel === i;
+    const baja = which === "B" && state.resaltar && R.niv[i] < NIV0[i];
+    const fuera = state.edo !== 0 && D.edo[i] !== state.edo;
+    return { fillColor: COL[n], fillOpacity: fuera ? 0.25 : 0.85, color: sel ? "#0b0b0b" : baja ? "#2a1650" : "#fcfcfb",
+             weight: sel ? 2.5 : baja ? 1.6 : 0.3 };
+  };
+}
+function tooltip(which) {
+  return (layer) => {
+    const i = layer.feature.properties.i;
+    const n0 = NIV0[i], n = R.niv[i];
+    return `<b>${D.nom[i]}</b>, ${D.edos[D.edo[i]]}<br>` +
+      (which === "A" ? `Abstención 2027: ${pct(D.a0[i])} · ${NIV[n0]}` :
+       `Con intervención: ${pct(R.a[i])} · ${NIV[n]}` + (n < n0 ? ` (antes ${NIV[n0]})` : ""));
+  };
+}
+const capa = which => L.geoJSON(GEO, { style: estilo(which) })
+  .bindTooltip(tooltip(which), { sticky: true })
+  .on("click", e => seleccionar(e.layer.feature.properties.i, false));
+const layA = capa("A").addTo(mapA), layB = capa("B").addTo(mapB);
+const capaPorIdx = {};
+layA.eachLayer(l => { (capaPorIdx[l.feature.properties.i] ||= {}).A = l; });
+layB.eachLayer(l => { (capaPorIdx[l.feature.properties.i] ||= {}).B = l; });
+
+// ---------------------------------------------------------------- KPIs
+function kpis(s) {
+  const nombre = state.edo ? D.edos[state.edo] : "Nacional";
+  const red = s.zona0 - s.zona;
+  const items = [
+    ["Abstención proyectada 2027 · " + nombre, pct(s.abst), state.s === "E0" ? "Sin intervención" : `<b>−${fmt(100 * (s.abst0 - s.abst), 2)} pp</b> vs. sin intervención`],
+    ["Municipios en rojo", fmt0(s.rojo), state.s === "E0" ? "Abstención de " + pct(CUT[2], 0) + " o más" : `<b>${fmt0(s.rojo - s.rojo0)}</b> vs. ${fmt0(s.rojo0)} sin intervención`],
+    ["Electores en zona roja", fmt(s.lnRojo / 1e6, 2) + " M", state.s === "E0" ? "Lista nominal 2024" : `<b>−${fmt((s.lnRojo0 - s.lnRojo) / 1e6, 2)} M</b> vs. sin intervención`],
+    ["Votos recuperados", fmt0(s.votos), "Participación juvenil adicional esperada"],
+    ["Reducción en la población en riesgo", (isNaN(red) ? "—" : fmt(100 * red, 2) + " pp"), "Abstención en municipios rojos y naranjas"],
+  ];
+  document.getElementById("kpis").innerHTML = items.map(([l, v, d]) =>
+    `<div class="kpi"><div class="lab">${l}</div><div class="val">${v}</div><div class="delta">${d}</div></div>`).join("");
+}
+
+// ---------------------------------------------------------------- barras
+function barras(s) {
+  const fila = (lab, arr) => {
+    const tot = arr.reduce((a, b) => a + b, 0);
+    return `<div class="row"><div>${lab}</div><div class="bar">` + arr.map((v, k) => {
+      const w = 100 * v / tot;
+      const txt = w > 7 ? fmt(v / 1e6, 1) : "";
+      return `<div style="width:${w}%;background:${COL[k]};color:${k === 1 ? "#0b0b0b" : "#fff"}" data-tip="${NIV[k]}: ${fmt(v / 1e6, 2)} M electores (${fmt(w, 1)}%)">${txt}</div>`;
+    }).join("") + `</div></div>`;
+  };
+  const filaN = (lab, arr) => {
+    const tot = arr.reduce((a, b) => a + b, 0);
+    return `<div class="row"><div>${lab}</div><div class="bar">` + arr.map((v, k) => {
+      const w = 100 * v / tot;
+      return `<div style="width:${w}%;background:${COL[k]};color:${k === 1 ? "#0b0b0b" : "#fff"}" data-tip="${NIV[k]}: ${fmt0(v)} municipios">${w > 7 ? fmt0(v) : ""}</div>`;
+    }).join("") + `</div></div>`;
+  };
+  const esc = state.s === "E1" ? "Focalizada" : "Uniforme";
+  document.getElementById("barsSub").textContent = "Electores (millones) y municipios en cada nivel" + (state.edo ? " · " + D.edos[state.edo] : "");
+  document.getElementById("bars").innerHTML =
+    `<div class="note"><b>Electores (millones)</b></div>` + fila("Sin intervención", s.lnN0) + (state.s === "E0" ? "" : fila(esc, s.lnN)) +
+    `<div class="note" style="margin-top:14px"><b>Municipios</b></div>` + filaN("Sin intervención", s.cnt0) + (state.s === "E0" ? "" : filaN(esc, s.cnt));
+  const baja = s.cnt0[3] - s.cnt[3];
+  document.getElementById("barsNote").innerHTML = state.s === "E0" ? "" :
+    `<p>El número de personas en rojo depende de cuántos municipios quedan cerca del umbral; la reducción de abstención en la población en riesgo es la medida más estable.</p>`;
+}
+
+// ---------------------------------------------------------------- curva de presupuesto (SVG)
+function curva() {
+  const W = 560, H = 250, m = { l: 44, r: 16, t: 14, b: 36 };
+  const xs = [...Array(21).keys()].map(k => k * 5);
+  const inE = i => state.edo === 0 || D.edo[i] === state.edo;
+  const serie = s => xs.map(p => { const r = simular(s, state.efecto, p / 100); return 100 * (wavg(D.a0, D.ln, i => inE(i) && RIESGO[i]) - wavg(r.a, D.ln, i => inE(i) && RIESGO[i])); });
+  const yP = serie("E1"), yU = serie("E2");
+  const ymax = Math.max(0.1, ...yP.filter(isFinite), ...yU.filter(isFinite)) * 1.1;
+  const X = p => m.l + (W - m.l - m.r) * p / 100, Y = v => H - m.b - (H - m.t - m.b) * v / ymax;
+  const path = ys => ys.map((v, k) => `${k ? "L" : "M"}${X(xs[k]).toFixed(1)},${Y(v).toFixed(1)}`).join("");
+  const ticks = [...Array(5).keys()].map(k => ymax / 1.1 * k / 4);
+  let g = ticks.map(t => `<line x1="${m.l}" x2="${W - m.r}" y1="${Y(t)}" y2="${Y(t)}" stroke="#e4e2ea"/><text x="${m.l - 6}" y="${Y(t) + 4}" text-anchor="end" font-size="11" fill="#52514e">${fmt(t, 2)}</text>`).join("");
+  g += [0, 25, 50, 75, 100].map(p => `<text x="${X(p)}" y="${H - m.b + 16}" text-anchor="middle" font-size="11" fill="#52514e">${p}%</text>`).join("");
+  g += `<text x="${(W + m.l) / 2}" y="${H - 4}" text-anchor="middle" font-size="11" fill="#52514e">Presupuesto: % de jóvenes del país alcanzados</text>`;
+  g += `<line x1="${m.l}" x2="${W - m.r}" y1="${Y(0)}" y2="${Y(0)}" stroke="#c3c2b7"/>`;
+  g += `<line x1="${X(100 * state.pres)}" x2="${X(100 * state.pres)}" y1="${m.t}" y2="${H - m.b}" stroke="#4a2b7a" stroke-dasharray="4 3"/>`;
+  g += `<path d="${path(yU)}" fill="none" stroke="#eb6834" stroke-width="2"/><path d="${path(yP)}" fill="none" stroke="#2a78d6" stroke-width="2"/>`;
+  const pts = (ys, c, lab) => ys.map((v, k) => `<circle cx="${X(xs[k])}" cy="${Y(v)}" r="9" fill="transparent" data-tip="${lab} · ${xs[k]}% de presupuesto: −${fmt(v, 2)} pp"/><circle cx="${X(xs[k])}" cy="${Y(v)}" r="3" fill="${c}" stroke="#fcfcfb" stroke-width="1.5" pointer-events="none"/>`).join("");
+  g += pts(yU, "#eb6834", "Uniforme") + pts(yP, "#2a78d6", "Focalizada");
+  const k6 = 6;
+  g += `<text x="${X(xs[k6]) - 6}" y="${Y(yP[k6]) - 8}" text-anchor="end" font-size="12" fill="#0b0b0b">Focalizada</text>`;
+  g += `<text x="${X(xs[12]) + 6}" y="${Y(yU[12]) + 16}" font-size="12" fill="#0b0b0b">Uniforme</text>`;
+  document.getElementById("curva").innerHTML = `<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Curva de reducción de abstención por presupuesto">${g}</svg>`;
+}
+
+// ---------------------------------------------------------------- tabla
+function tabla() {
+  const idx = [...Array(N).keys()].filter(i => NIV0[i] === 3 && (state.edo === 0 || D.edo[i] === state.edo))
+    .sort((i, j) => D.ln[j] - D.ln[i]).slice(0, 40);
+  document.getElementById("tablaSub").textContent = `Municipios en rojo sin intervención${state.edo ? " en " + D.edos[state.edo] : ""}, ordenados por número de electores (${idx.length} mostrados).`;
+  document.querySelector("#tabla tbody").innerHTML = idx.map(i => `<tr data-i="${i}">
+    <td>${D.nom[i]}<br><span class="note">${D.edos[D.edo[i]]}</span></td><td class="n">${fmt0(D.ln[i])}</td>
+    <td class="n">${D.a21[i] == null ? "—" : pct(D.a21[i])}</td><td class="n">${pct(D.a0[i])}</td><td class="n">${pct(R.a[i])}</td>
+    <td>${chip(NIV0[i])}${R.niv[i] !== NIV0[i] ? " → " + chip(R.niv[i]) : ""}</td><td class="accion">${D.acciones[D.acc[i]]}</td></tr>`).join("");
+}
+
+// ---------------------------------------------------------------- ficha municipal
+function ficha() {
+  const el = document.getElementById("ficha"), i = state.sel;
+  if (i == null) return;
+  const W = 560, H = 210, m = { l: 40, r: 70, t: 14, b: 26 };
+  const yrs = D.anios.concat([2027]);
+  const hist = D.hist[i];
+  const vals = hist.filter(v => v != null).concat([D.li[i], D.ls[i], R.a[i]]);
+  const lo = Math.max(0, Math.min(...vals) - 0.05), hi = Math.min(1, Math.max(...vals) + 0.05);
+  const X = y => m.l + (W - m.l - m.r) * (y - 2009) / 18, Y = v => H - m.b - (H - m.t - m.b) * (v - lo) / (hi - lo);
+  let g = "";
+  for (let k = 0; k <= 4; k++) { const v = lo + (hi - lo) * k / 4; g += `<line x1="${m.l}" x2="${W - m.r}" y1="${Y(v)}" y2="${Y(v)}" stroke="#e4e2ea"/><text x="${m.l - 6}" y="${Y(v) + 4}" text-anchor="end" font-size="11" fill="#52514e">${fmt(100 * v, 0)}%</text>`; }
+  yrs.forEach(y => g += `<text x="${X(y)}" y="${H - 8}" text-anchor="middle" font-size="11" fill="#52514e">${y}</text>`);
+  CUT.forEach((c, k) => { if (c > lo && c < hi) g += `<line x1="${m.l}" x2="${W - m.r}" y1="${Y(c)}" y2="${Y(c)}" stroke="${COL[k + 1]}" stroke-dasharray="3 3"/><text x="${W - m.r + 4}" y="${Y(c) + 4}" font-size="10.5" fill="#52514e">${NIV[k + 1]}</text>`; });
+  const pts = D.anios.map((y, k) => [y, hist[k]]).filter(p => p[1] != null);
+  g += `<path d="${pts.map((p, k) => `${k ? "L" : "M"}${X(p[0])},${Y(p[1])}`).join("")}" fill="none" stroke="#2a78d6" stroke-width="2"/>`;
+  g += pts.map(p => `<circle cx="${X(p[0])}" cy="${Y(p[1])}" r="9" fill="transparent" data-tip="${p[0]}: ${pct(p[1])} de abstención"/><circle cx="${X(p[0])}" cy="${Y(p[1])}" r="4" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2" pointer-events="none"/>`).join("");
+  g += `<line x1="${X(2027)}" x2="${X(2027)}" y1="${Y(D.li[i])}" y2="${Y(D.ls[i])}" stroke="#52514e" stroke-width="2"/>`;
+  g += `<circle cx="${X(2027)}" cy="${Y(D.a0[i])}" r="9" fill="transparent" data-tip="2027 sin intervención: ${pct(D.a0[i])} (intervalo 90%: ${pct(D.li[i], 0)}–${pct(D.ls[i], 0)})"/><circle cx="${X(2027)}" cy="${Y(D.a0[i])}" r="5" fill="${COL[NIV0[i]]}" stroke="#0b0b0b" stroke-width="1" pointer-events="none"/>`;
+  if (state.s !== "E0" && R.a[i] < D.a0[i] - 1e-6)
+    g += `<circle cx="${X(2027) + 12}" cy="${Y(R.a[i])}" r="9" fill="transparent" data-tip="2027 con intervención: ${pct(R.a[i])}"/><circle cx="${X(2027) + 12}" cy="${Y(R.a[i])}" r="4.5" fill="${COL[R.niv[i]]}" stroke="#0b0b0b" stroke-dasharray="2 1" pointer-events="none"/>`;
+  el.innerHTML = `<h2>Ficha municipal</h2><h3>${D.nom[i]}</h3><div class="edo">${D.edos[D.edo[i]]} · ${fmt0(D.ln[i])} electores · ${pct(D.shj[i], 0)} de 18 a 29 años</div>
+    <div>${chip(NIV0[i])} sin intervención${state.s !== "E0" ? ` &nbsp;→&nbsp; ${chip(R.niv[i])} con intervención` : ""}</div>
+    <div class="facts">
+      <div class="fact"><div class="l">Abstención 2021</div><div class="v">${D.a21[i] == null ? "—" : pct(D.a21[i])}</div></div>
+      <div class="fact"><div class="l">Proyección 2027</div><div class="v">${pct(D.a0[i])}</div></div>
+      <div class="fact"><div class="l">Intervalo al 90%</div><div class="v">${pct(D.li[i], 0)}–${pct(D.ls[i], 0)}</div></div>
+      <div class="fact"><div class="l">Prob. de quedar en rojo</div><div class="v">${pct(D.pr[i], 0)}</div></div>
+      <div class="fact"><div class="l">Con intervención</div><div class="v">${pct(R.a[i])}</div></div>
+      <div class="fact"><div class="l">Votos recuperados</div><div class="v">${fmt0(R.v[i])}</div></div>
+    </div>
+    <div style="margin:4px 0 8px"><span class="note">Acción sugerida:</span> <span class="accion">${D.acciones[D.acc[i]]}${D.mh[i] ? " + mensajes para hombres jóvenes" : ""}</span></div>
+    <div class="note">Censo 2020: ${D.nacoe[i] == null ? "sin dato" : `${pct(D.nacoe[i], 0)} nació en otra entidad · ${pct(D.resoe[i], 1)} vivía en otra entidad en 2015 · ${pct(D.hli[i], 0)} habla lengua indígena`}</div>
+    <svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Historial de abstención y proyección 2027">${g}</svg>
+    ${porque(i)}
+    <div class="note">Línea azul: abstención observada (2009–2024). En 2027, el punto es la proyección sin intervención, con su intervalo al 90%${state.s !== "E0" ? "; el punto con borde punteado es el escenario con intervención" : ""}.</div>`;
+}
+function porque(i) {
+  const f = D.fams.map((n, k) => [n, D.exp[i][k]]).filter(x => Math.abs(x[1]) >= 0.05).sort((a, b) => Math.abs(b[1]) - Math.abs(a[1])).slice(0, 5);
+  if (!f.length) return "";
+  const mx = Math.max(...f.map(x => Math.abs(x[1])), 1), W = 560, rowH = 24, H = f.length * rowH + 8, mid = 390, half = 135;
+  const g = f.map(([n, v], k) => {
+    const y = 4 + k * rowH, w = half * Math.abs(v) / mx, x = v >= 0 ? mid : mid - w;
+    return `<text x="${mid - half - 8}" y="${y + 15}" text-anchor="end" font-size="12" fill="#0b0b0b">${n}</text>` +
+      `<rect x="${x}" y="${y + 4}" width="${Math.max(w, 1)}" height="14" rx="3" fill="${v >= 0 ? "#d03b3b" : "#2a78d6"}" data-tip="${n}: ${v >= 0 ? "+" : "−"}${fmt(Math.abs(v), 1)} pp"/>` +
+      `<text x="${v >= 0 ? x + w + 5 : x - 5}" y="${y + 15}" text-anchor="${v >= 0 ? "start" : "end"}" font-size="11" fill="#52514e">${v >= 0 ? "+" : "−"}${fmt(Math.abs(v), 1)}</text>`;
+  }).join("") + `<line x1="${mid}" x2="${mid}" y1="0" y2="${H}" stroke="#c3c2b7"/>`;
+  return `<h4 style="margin:12px 0 2px;font-size:13px">¿Por qué? Factores que más mueven su proyección</h4>
+    <div class="note">Contribución (pp) a su abstención relativa a la entidad, comparado con un municipio promedio: <span style="color:#d03b3b">rojo eleva</span>, <span style="color:#2a78d6">azul reduce</span> la abstención. Componente lineal del modelo.</div>
+    <svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Factores del riesgo">${g}</svg>`;
+}
+const DI = D.dist;
+function distritos() {
+  const sel = document.getElementById("distSel"), prev = sel.options.length ? +sel.value : -1;
+  const idx = DI.edo.map((e, k) => k).filter(k => state.edo === 0 || DI.edo[k] === state.edo);
+  sel.innerHTML = idx.map(k => `<option value="${k}">${D.edos[DI.edo[k]]} · Distrito ${String(DI.def[k]).padStart(2, "0")} (${NIV[DI.niv[k]]})</option>`).join("");
+  if (idx.includes(prev)) sel.value = prev;
+  else sel.value = idx.slice().sort((a, b) => DI.jab[b] - DI.jab[a])[0];
+  distrito();
+}
+function distrito() {
+  const k = +document.getElementById("distSel").value;
+  document.getElementById("distInfo").innerHTML = `${chip(DI.niv[k])}
+    <div class="facts" style="grid-template-columns:repeat(2,minmax(0,1fr))">
+      <div class="fact"><div class="l">Abstención 2027</div><div class="v">${pct(DI.abst[k])}</div></div>
+      <div class="fact"><div class="l">Electores</div><div class="v">${fmt0(DI.ln[k])}</div></div>
+      <div class="fact"><div class="l">Jóvenes que se abstendrían</div><div class="v">${fmt0(DI.jab[k])}</div></div>
+      <div class="fact"><div class="l">Secciones en rojo</div><div class="v">${fmt0(DI.secr[k])} de ${fmt0(DI.sec[k])}</div></div>
+    </div>
+    <div class="note"><b>${fmt0(DI.mitad[k])} de ${fmt0(DI.sec[k])} secciones</b> concentran la mitad de las personas jóvenes que se abstendrían. Municipios: ${DI.muns[k]}.</div>`;
+  const tipo = { U: "Urbana", M: "Mixta", R: "Rural" };
+  document.querySelector("#tablaSec tbody").innerHTML = DI.top[k].map((r, n) => `<tr style="cursor:default">
+    <td>${n + 1}</td><td>${r[0]}</td><td>${r[1]}</td><td>${tipo[r[2]] || r[2]}</td><td class="n">${fmt0(r[3])}</td>
+    <td class="n">${pct(r[4])}</td><td class="n"><b>${fmt0(r[5])}</b></td><td>${chip(r[6])}</td></tr>`).join("");
+}
+function seleccionar(i, zoom) {
+  state.sel = i;
+  layA.setStyle(estilo("A")); layB.setStyle(estilo("B"));
+  const c = capaPorIdx[i];
+  if (zoom && c && c.A) mapA.fitBounds(c.A.getBounds(), { maxZoom: 9, padding: [40, 40] });
+  ficha();
+}
+
+// ---------------------------------------------------------------- render
+function render() {
+  R = simular(state.s, state.efecto, state.pres);
+  const s = resumen(R, state.edo);
+  kpis(s); barras(s); curva(); tabla(); ficha();
+  layA.setStyle(estilo("A")); layB.setStyle(estilo("B"));
+  document.getElementById("ttlB").textContent = { E0: "Sin intervención", E1: "Intervención focalizada", E2: "Intervención uniforme" }[state.s] +
+    (state.s === "E0" ? "" : ` · +${fmt(100 * state.efecto, 1)} pp · ${fmt(100 * state.pres, 0)}% de jóvenes`);
+  document.getElementById("efectoV").textContent = "+" + fmt(100 * state.efecto, 1) + " pp";
+  document.getElementById("presV").textContent = fmt(100 * state.pres, 0) + "%";
+  document.getElementById("efecto").disabled = document.getElementById("pres").disabled = state.s === "E0";
+  window.__resumen = s;   // usado para verificar contra el pipeline de Python
+}
+
+// ---------------------------------------------------------------- controles
+document.getElementById("legend").innerHTML = NIV.map((n, k) => {
+  const r = k === 0 ? `menos de ${pct(CUT[0], 0)}` : k === 3 ? `${pct(CUT[2], 0)} o más` : `${pct(CUT[k - 1], 0)} a ${pct(CUT[k], 0)}`;
+  return `<div class="it"><span class="sw" style="background:${COL[k]}"></span><b>${n}</b>&nbsp;${r}</div>`;
+}).join("") + `<div class="it"><span class="sw" style="background:#fff;border:2px solid #2a1650"></span>Baja de color con la intervención</div>`;
+document.getElementById("cortesTxt").textContent = `amarillo desde ${pct(CUT[0], 0)}, naranja desde ${pct(CUT[1], 0)} y rojo desde ${pct(CUT[2], 0)}`;
+document.querySelectorAll("#seg button").forEach(b => b.addEventListener("click", () => {
+  document.querySelectorAll("#seg button").forEach(x => x.setAttribute("aria-pressed", x === b));
+  state.s = b.dataset.s; render();
+}));
+const ef = document.getElementById("efecto"), pr = document.getElementById("pres");
+ef.value = 100 * state.efecto; pr.value = Math.round(100 * state.pres);
+ef.addEventListener("input", () => { state.efecto = ef.value / 100; render(); });
+pr.addEventListener("input", () => { state.pres = pr.value / 100; render(); });
+const sel = document.getElementById("edo");
+Object.entries(D.edos).forEach(([k, v]) => sel.insertAdjacentHTML("beforeend", `<option value="${k}">${v}</option>`));
+sel.addEventListener("change", () => {
+  state.edo = +sel.value; render(); distritos();
+  if (state.edo) {
+    const b = L.latLngBounds([]);
+    layA.eachLayer(l => { if (D.edo[l.feature.properties.i] === state.edo) b.extend(l.getBounds()); });
+    if (b.isValid()) mapA.fitBounds(b, { padding: [20, 20] });
+  } else mapA.fitBounds(MX);
+});
+const nombres = D.nom.map((n, i) => `${n}, ${D.edos[D.edo[i]]}`);
+document.getElementById("munlist").innerHTML = nombres.map(n => `<option value="${n}">`).join("");
+document.getElementById("buscar").addEventListener("change", e => { const i = nombres.indexOf(e.target.value); if (i >= 0) seleccionar(i, true); });
+document.getElementById("resaltar").addEventListener("change", e => { state.resaltar = e.target.checked; layB.setStyle(estilo("B")); });
+document.querySelector("#tabla tbody").addEventListener("click", e => { const tr = e.target.closest("tr"); if (tr) seleccionar(+tr.dataset.i, true); });
+// tooltip para elementos con data-tip (gráficas y barras)
+const tip = document.getElementById("tip");
+document.addEventListener("mousemove", e => {
+  const t = e.target.closest && e.target.closest("[data-tip]");
+  if (!t) { tip.style.display = "none"; return; }
+  tip.textContent = t.getAttribute("data-tip"); tip.style.display = "block";
+  tip.style.left = Math.min(e.clientX + 12, innerWidth - 270) + "px"; tip.style.top = (e.clientY + 12) + "px";
+});
+render();
+distritos();
+document.getElementById("distSel").addEventListener("change", distrito);
+encuadrar();
+addEventListener("resize", () => { mapA.invalidateSize(); mapB.invalidateSize(); });
+// Ficha inicial: el municipio en rojo con más electores
+seleccionar([...Array(N).keys()].filter(i => NIV0[i] === 3).sort((i, j) => D.ln[j] - D.ln[i])[0], false);
+</script>
+</body>
+</html>

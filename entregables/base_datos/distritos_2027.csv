@@ -1,0 +1,301 @@
+﻿EDOCVE,DISTRITO_FEDERAL,LN,LN_JOV,SECCIONES,ABST_2027,ABST_JOV_2027,JOV_ABST_ESP,SECCIONES_ROJAS,MUNICIPIOS,NIVEL_2027,SEMAFORO_2027,SECC_MITAD_JOV_ABST
+1,1,364621,111167.0,158,0.4647,0.5439,60466.5737,5,"Calvillo, Jesús María, Rincón de Romos, Asientos",1,Amarillo,32
+1,2,347164,106022.0,203,0.5583,0.6601,69985.2243,66,Aguascalientes,2,Naranja,34
+1,3,385386,100279.0,302,0.4855,0.5975,59919.2263,50,Aguascalientes,1,Amarillo,68
+2,1,331730,81484.0,209,0.5986,0.6965,56750.0992,110,Mexicali,3,Rojo,27
+2,2,342536,85248.0,235,0.6215,0.7198,61360.8895,151,Mexicali,3,Rojo,32
+2,3,334448,92706.0,198,0.6109,0.7231,67039.4923,108,"Ensenada, San Quintin, San Felipe",3,Rojo,31
+2,4,364422,113265.0,308,0.6317,0.7068,80055.1939,233,Tijuana,3,Rojo,83
+2,5,401504,95016.0,240,0.6038,0.6834,64931.6369,160,Tijuana,3,Rojo,54
+2,6,380370,90920.0,295,0.6157,0.6964,63316.3713,230,Tijuana,3,Rojo,71
+2,7,327244,84554.0,207,0.6294,0.7346,62111.5854,163,"Mexicali, Ensenada, San Felipe",3,Rojo,47
+2,8,358514,100204.0,240,0.6357,0.7166,71802.811,208,Tijuana,3,Rojo,51
+2,9,357049,99261.0,172,0.6616,0.7332,72777.271,145,"Tijuana, Tecate, Playas de Rosarito",3,Rojo,35
+3,1,345187,85851.0,354,0.483,0.6182,53076.6542,25,"La Paz, Comondú, Mulegé, Loreto",1,Amarillo,73
+3,2,268426,77586.0,168,0.5682,0.6702,52002.0147,69,Los Cabos,2,Naranja,46
+4,1,347784,89590.0,264,0.3295,0.408,36553.9465,3,"Campeche, Hopelche}én, Calkiní, Calakmul",0,Verde,42
+4,2,346816,93098.0,280,0.4252,0.5226,48656.1318,0,"Carmen, Champotón, Escárcega, Candelaria",1,Amarillo,65
+5,1,328749,90773.0,208,0.4946,0.5803,52678.062,1,"Piedras Negras, Acuña, Nava, Zaragoza",1,Amarillo,28
+5,2,290793,78213.0,266,0.3713,0.4501,35204.0635,1,"San Pedro, Múzquiz, Francisco I. Madero, Frontera",0,Verde,63
+5,3,329917,83342.0,269,0.4203,0.5194,43289.3856,0,"Monclova, Sabinas, San Juan de Sabinas, Castaños",1,Amarillo,58
+5,4,330555,91438.0,191,0.445,0.5825,53262.8292,10,Saltillo,1,Amarillo,34
+5,5,276841,71321.0,216,0.3902,0.4922,35102.3309,0,Torreón,0,Verde,35
+5,6,270334,74284.0,190,0.4104,0.5072,37675.5067,0,Torreón,1,Amarillo,32
+5,7,326764,94313.0,229,0.4646,0.6054,57099.9763,4,Saltillo,1,Amarillo,39
+5,8,256717,72715.0,208,0.4006,0.5105,37117.9103,9,"Matamoros, Ramos Arizpe, Parras, Viesca",1,Amarillo,31
+6,1,308640,73528.0,214,0.4509,0.544,39998.6755,1,"Colima, Villa de Álvarez, Cuauhtémoc, Coquimatlán",1,Amarillo,36
+6,2,276281,71935.0,177,0.505,0.6204,44627.0513,14,"Manzanillo, Tecomán, Armería, Ixtlahuacán",2,Naranja,30
+7,1,291723,89711.0,139,0.2502,0.3474,31168.8419,1,"Palenque, Salto De Agua, Tila, Yajalón",0,Verde,38
+7,2,270777,99261.0,137,0.2758,0.3497,34713.353,0,"Simojovel, Chenalhó, Bochil, Huitiupaán",0,Verde,42
+7,3,288807,104116.0,150,0.3154,0.4011,41755.8825,0,"Ocosingo, Chilón, Marqués de Comillas, Benemérito de las Américas",0,Verde,40
+7,4,282121,84482.0,183,0.2696,0.3511,29663.3675,0,"Reforma, Pichucalco, San Fernando, Copainalá",0,Verde,54
+7,5,317722,107591.0,144,0.3986,0.4738,50977.9978,5,"San Cristóbal de las Casas, Chamula, Tenejapa, Zinacantán",0,Verde,39
+7,6,319717,88242.0,175,0.4479,0.5293,46709.2869,34,"Tuxtla Gutiérrez, Chiapa de Corzo, Venustiano Carranza, Acala",1,Amarillo,40
+7,7,334549,89472.0,218,0.4236,0.5378,48114.0913,5,"Tonalá, Cintalapa, Pijijiapan, Arriaga",1,Amarillo,63
+7,8,301264,84400.0,175,0.354,0.4443,37502.6271,2,"Comitán de Domínguez, La Trinitaria, Frontera Comalapa, Chicomuselo",0,Verde,48
+7,9,339530,89175.0,174,0.5536,0.6655,59350.1491,41,Tuxtla Gutiérrez,2,Naranja,32
+7,10,325506,94276.0,172,0.3942,0.4657,43899.9345,7,"Villaflores, Ocozocoautla de Espinosa, Villa Corzo, La Concordia",0,Verde,49
+7,11,293114,99253.0,158,0.3482,0.439,43576.2978,12,"Las Margaritas, Oxchuc, La Independencia, Altamirano",0,Verde,42
+7,12,313365,87680.0,224,0.4586,0.5693,49919.0548,30,"Tapachula, Cacahoatán, Tuxtla Chico, Suchiate",1,Amarillo,62
+7,13,325181,95469.0,208,0.4105,0.5449,52021.8698,10,"Tapachula, Motozintla, Huixtla, Huehuetán",1,Amarillo,61
+8,1,305757,90750.0,231,0.5852,0.6752,61278.8423,109,Juárez,3,Rojo,46
+8,2,292458,96195.0,312,0.652,0.7355,70747.7623,266,"Juárez, Ahumada, Praxedis G. Guerrero, Guadalupe",3,Rojo,41
+8,3,355912,99682.0,366,0.6331,0.7252,72291.1026,311,"Juárez, Ascensión, Janos",3,Rojo,64
+8,4,345540,74598.0,353,0.5328,0.6269,46768.2826,156,Juárez,2,Naranja,78
+8,5,356127,88878.0,356,0.5093,0.6069,53937.7365,31,"Delicias, Camargo, Jiménez, Meoqui",2,Naranja,56
+8,6,371377,95223.0,317,0.4485,0.5378,51213.2396,28,Chihuahua,1,Amarillo,60
+8,7,366469,92023.0,500,0.5471,0.6436,59227.2294,91,"Cuauhtémoc, Guerrero, Nuevo Casas Grandes, Madera",2,Naranja,61
+8,8,383902,95676.0,379,0.5072,0.6016,57556.5952,45,Chihuahua,2,Naranja,70
+8,9,304821,79372.0,406,0.4334,0.5357,42521.3224,11,"Hidalgo del Parral, Guachochi, Guadalupe y Calvo, Bocoyna",1,Amarillo,70
+9,1,346209,83998.0,250,0.5221,0.6158,51724.1584,25,Gustavo A. Madero,2,Naranja,71
+9,2,411082,84274.0,369,0.4698,0.5689,47946.8613,8,"Gustavo A. Madero, Cuauhtémoc",1,Amarillo,114
+9,3,384017,77697.0,347,0.4519,0.5437,42240.4916,1,Azcapotzalco,1,Amarillo,105
+9,4,302026,74145.0,189,0.5373,0.6382,47319.7729,20,Iztapalapa,2,Naranja,62
+9,5,349465,85588.0,185,0.5006,0.5981,51189.333,12,"Tlalpan, Xochimilco",2,Naranja,41
+9,6,345959,79675.0,256,0.4423,0.5476,43626.9366,1,"La Magdalena Contreras, Álvaro Obregón",1,Amarillo,67
+9,7,412926,90753.0,336,0.4844,0.5745,52134.2823,2,Gustavo A. Madero,1,Amarillo,127
+9,8,379195,81303.0,258,0.4384,0.5335,43371.1188,0,Coyoacán,1,Amarillo,70
+9,9,318687,82320.0,152,0.5495,0.6401,52695.7143,27,Tláhuac,2,Naranja,49
+9,10,329164,61494.0,260,0.4147,0.4956,30479.3136,3,Miguel Hidalgo,1,Amarillo,75
+9,11,404570,85888.0,336,0.4625,0.5613,48211.8133,0,Venustiano Carranza,1,Amarillo,115
+9,12,379221,71609.0,300,0.482,0.5784,41415.2009,8,Cuauhtémoc,1,Amarillo,96
+9,13,364028,77981.0,299,0.4771,0.5738,44746.8584,0,Iztacalco,1,Amarillo,101
+9,14,362253,78907.0,259,0.4466,0.5474,43195.4694,2,Tlalpan,1,Amarillo,66
+9,15,384037,58888.0,254,0.3745,0.4355,25648.5257,0,Benito Juárez,0,Verde,93
+9,16,322919,72631.0,240,0.4785,0.5797,42107.3194,6,Álvaro Obregón,1,Amarillo,69
+9,17,352769,86294.0,178,0.4356,0.5221,45057.1816,0,"Álvaro Obregón, Cuajimalpa de Morelos",1,Amarillo,51
+9,18,373172,86928.0,260,0.5085,0.6104,53058.9602,6,Iztapalapa,2,Naranja,76
+9,19,333460,65319.0,275,0.4258,0.5277,34472.0767,2,"Coyoacán, Iztapalapa",1,Amarillo,86
+9,20,405021,100036.0,278,0.5345,0.6308,63106.7147,21,Iztapalapa,2,Naranja,83
+9,21,354362,93194.0,140,0.5429,0.6292,58635.6807,27,"Xochimilco, Milpa Alta",2,Naranja,42
+9,22,304048,83460.0,154,0.5861,0.6764,56449.4646,60,Iztapalapa,3,Rojo,48
+10,1,341475,97241.0,394,0.5969,0.6787,65998.3003,202,"Durango, Santiago Papasquiaro, Pueblo Nuevo, San Dimas",3,Rojo,55
+10,2,342704,92085.0,340,0.5754,0.6734,62006.2678,125,"Gómez Palacio, Mapimí, El Oro, Tlahualilo",2,Naranja,55
+10,3,357595,91418.0,411,0.567,0.655,59874.3176,144,"Lerdo, Canatlán, Cuencamé, Nuevo Ideal",2,Naranja,86
+10,4,355775,94542.0,231,0.5753,0.6761,63916.5241,87,Durango,2,Naranja,45
+11,1,294329,91778.0,190,0.5387,0.6399,58728.8427,68,"Dolores Hidalgo Cuna de la Independencia Nacional, San Luis de la Paz, Victoria, Xichú",2,Naranja,46
+11,2,340691,101931.0,218,0.5918,0.6956,70905.726,129,"San Miguel de Allende, Comonfort, San José Iturbide, Celaya",3,Rojo,60
+11,3,333943,89283.0,217,0.4889,0.6007,53635.1357,16,León,1,Amarillo,32
+11,4,292746,83625.0,219,0.5503,0.6556,54821.2995,72,"Guanajuato, San Felipe, San Diego de la Unión, Ocampo",2,Naranja,57
+11,5,307388,88728.0,184,0.5744,0.6756,59948.2465,47,León,2,Naranja,30
+11,6,300437,89176.0,199,0.5629,0.6644,59244.3853,88,León,2,Naranja,41
+11,7,273922,77541.0,200,0.554,0.6268,48600.5379,56,"San Francisco del Rincón, Romita, Manuel Doblado, Purísima del Rincón",2,Naranja,39
+11,8,343818,91852.0,223,0.5479,0.6583,60470.5953,72,"Salamanca, Santa Cruz de Juventino Rosas, Villagrán",2,Naranja,49
+11,9,311502,89884.0,156,0.598,0.7088,63705.3129,94,"Irapuato, Silao de la Victoria",3,Rojo,37
+11,10,373333,88243.0,293,0.5632,0.6245,55108.0971,132,"Salvatierra, Yuriria, Cortazar, Moroleón",2,Naranja,67
+11,11,330392,96191.0,177,0.5412,0.6479,62326.2091,35,León,2,Naranja,25
+11,12,342693,89782.0,222,0.5537,0.6559,58891.3209,72,Celaya,2,Naranja,38
+11,13,357064,92291.0,262,0.6077,0.6802,62774.9401,168,"Pénjamo, Valle de Santiago, Abasolo, Huanímaro",3,Rojo,75
+11,14,322918,80655.0,291,0.5941,0.6738,54343.7519,173,"Acámbaro, Jerécuaro, Apaseo el Grande, Apaseo el Alto",3,Rojo,71
+11,15,305983,87876.0,184,0.6115,0.718,63092.0413,89,Irapuato,3,Rojo,32
+12,1,360803,93459.0,601,0.4019,0.4964,46396.0029,6,"Taxco de Alarcón, Teloloapan, Coyuca de Catalán, Arcelia",1,Amarillo,101
+12,2,288179,75272.0,157,0.5145,0.6348,47779.2741,8,Acapulco de Juárez,2,Naranja,41
+12,3,326796,84228.0,389,0.4387,0.5725,48221.3201,7,"Atoyac de Álvarez, Zihuatanejo de Azueta, Técpan de Galeana, Coyuca de Benítez",1,Amarillo,75
+12,4,312263,75615.0,241,0.4996,0.6301,47647.8561,8,Acapulco de Juárez,1,Amarillo,62
+12,5,319823,109559.0,314,0.3295,0.4558,49941.21,2,"Tlapa de Comonfort, Ahuacuotzingo, Acatepec, Olinalá",0,Verde,61
+12,6,352763,101757.0,357,0.4521,0.5813,59153.2048,21,"Iguala de la Independencia, Chilapa de Álvarez, Quechultenango, Huitzuco de los Figueroa",1,Amarillo,75
+12,7,332858,96553.0,255,0.461,0.5919,57148.1921,14,"Chilpancingo de los Bravo, General Heliodoro Castillo, Eduardo Neri, Tixtla de Guerrero",1,Amarillo,50
+12,8,349771,106489.0,383,0.3541,0.4898,52153.094,27,"Ayutla de los Libres, San Marcos, Tecoanapa, Ometepec",0,Verde,81
+13,1,337852,89685.0,323,0.4677,0.6349,56940.9216,38,"Huejutla de Reyes, Tepehuacán de Guerrero, Huautla, Tlanchinol",1,Amarillo,63
+13,2,362287,93205.0,414,0.539,0.6605,61561.6672,96,"Ixmiquilpan, Zimapán, Chapulhuacán, Tecozautla",2,Naranja,92
+13,3,333236,87742.0,280,0.5491,0.6495,56990.5803,69,"Mineral de la Reforma, Actopan, Atotonilco el Grande, Metztitlán",2,Naranja,56
+13,4,327331,90592.0,199,0.5915,0.7057,63934.0724,89,"Tulancingo de Bravo, Cuautepec de Hinojosa, Acaxochitlán, San Bartolo Tutotepec",3,Rojo,41
+13,5,358322,92675.0,221,0.5255,0.627,58109.529,36,"Tula de Allende, Huichapan, Tepeji del Río de Ocampo, Atotonilco de Tula",2,Naranja,62
+13,6,343472,87789.0,203,0.5212,0.6271,55049.1138,20,"Pachuca de Soto, San Agustín Tlaxiaca, Francisco I. Madero, Ajacuba",2,Naranja,37
+13,7,323806,86453.0,186,0.5758,0.6751,58364.3375,76,"Tizayuca, Tepeapulco, Apan, Zempoala",2,Naranja,39
+14,1,333803,88414.0,255,0.4431,0.5084,44948.9202,15,"Ameca, Tala, Tequila, Colotlán",1,Amarillo,54
+14,2,315945,87154.0,211,0.5107,0.594,51765.5587,39,"Lagos de Moreno, San Juan de los Lagos, Encarnación de Díaz, Teocaltiche",2,Naranja,41
+14,3,354387,90509.0,214,0.5218,0.582,52674.028,49,"Tepatitlán de Morelos, Zapotlanejo, Yahualica de González Gallo, Tototlán",2,Naranja,45
+14,4,357567,96943.0,149,0.5425,0.6351,61566.2518,28,Zapopan,2,Naranja,24
+14,5,330738,85990.0,169,0.5383,0.6409,55111.8995,34,"Puerto Vallarta, Tomatlán, Mascota, Talpa de Allende",2,Naranja,25
+14,6,312657,91692.0,143,0.5554,0.6427,58934.6738,48,Zapopan,2,Naranja,19
+14,7,281203,84400.0,87,0.6152,0.7105,59965.4353,61,Tonalá,3,Rojo,18
+14,8,393943,82037.0,371,0.4398,0.5477,44931.6292,6,Guadalajara,1,Amarillo,123
+14,9,361423,91033.0,230,0.5356,0.6334,57662.8574,53,Guadalajara,2,Naranja,71
+14,10,362224,85374.0,163,0.4522,0.5517,47104.2419,30,Zapopan,1,Amarillo,34
+14,11,385731,92426.0,311,0.5117,0.6027,55703.0142,20,Guadalajara,2,Naranja,100
+14,12,312391,89780.0,123,0.5481,0.6484,58215.2926,57,"Tlajomulco de Zúñiga, Zapopan",2,Naranja,28
+14,13,319611,85846.0,163,0.5582,0.6564,56350.4449,60,"San Pedro Tlaquepaque, Guadalajara",2,Naranja,41
+14,14,255151,80968.0,90,0.6755,0.7652,61957.1596,68,Tlajomulco de Zúñiga,3,Rojo,20
+14,15,343345,89310.0,214,0.5231,0.5921,52879.281,41,"La Barca, Arandas, Atotonilco el Alto, Jalostotitlán",2,Naranja,46
+14,16,328414,94198.0,132,0.5892,0.697,65654.5186,59,San Pedro Tlaquepaque,3,Rojo,28
+14,17,312837,83240.0,166,0.5008,0.5737,47753.6951,25,"Ocotlán, Poncitlán, Jocotepec, Chapala",2,Naranja,40
+14,18,349085,83209.0,261,0.454,0.515,42854.8297,17,"Autlán de Navarro, La Huerta, Cihuatlán, Cocula",1,Amarillo,62
+14,19,351951,84458.0,280,0.484,0.5605,47337.5138,18,"Zapotlán el Grande, Tamazula de Gordiano, Tuxpan, Zapotiltic",1,Amarillo,61
+14,20,256973,78409.0,55,0.6038,0.6995,54850.5776,25,"El Salto, Tonalá, San Pedro Tlaquepaque",3,Rojo,9
+15,1,333884,96379.0,218,0.3578,0.4599,44326.2104,0,"Jilotepec, Temascalcingo, Acambay de Ruíz Castañeda, Aculco",0,Verde,65
+15,2,287508,78171.0,96,0.4598,0.5572,43557.6541,1,"Cuautitlán, Tultepec, Melchor Ocampo",1,Amarillo,19
+15,3,319248,92463.0,151,0.3932,0.4894,45249.5986,0,"Ixtlahuaca, Atlacomulco, Jiquipilco, Jocotitlán",0,Verde,46
+15,4,313697,85687.0,110,0.4996,0.6055,51885.2728,1,Nicolás Romero,1,Amarillo,28
+15,5,292073,81475.0,106,0.4211,0.5124,41746.7487,0,"Tecámac, Teotihuacán, Temascalapa",1,Amarillo,24
+15,6,351501,86392.0,168,0.4624,0.5582,48223.5474,0,"Coacalco de Berriozábal, Tultitlán",1,Amarillo,31
+15,7,354466,84494.0,219,0.4328,0.5317,44923.1903,2,Cuautitlán Izcalli,1,Amarillo,47
+15,8,345460,87432.0,174,0.4759,0.5815,50843.1904,1,"Tultitlán, Cuautitlán Izcalli",1,Amarillo,36
+15,9,320991,109798.0,185,0.4205,0.5374,59009.5683,2,"Villa Victoria, San Felipe del Progreso, San José del Rincón, Villa de Allende",1,Amarillo,50
+15,10,302925,82153.0,156,0.5099,0.6098,50095.0165,5,Ecatepec de Morelos,2,Naranja,41
+15,11,334119,91903.0,165,0.5289,0.6291,57819.571,15,Ecatepec de Morelos,2,Naranja,43
+15,12,286294,80192.0,172,0.52,0.6128,49145.1032,8,Ixtapaluca,2,Naranja,38
+15,13,377018,87724.0,261,0.4771,0.5868,51478.1919,1,Ecatepec de Morelos,1,Amarillo,75
+15,14,266100,75592.0,137,0.3998,0.485,36663.7613,0,"Acolman, Axapusco, Otumba, Tezoyuca",0,Verde,37
+15,15,363804,90191.0,144,0.473,0.575,51863.4359,0,Atizapán de Zaragoza,1,Amarillo,38
+15,16,320614,85523.0,177,0.5163,0.6109,52249.3328,4,"Ecatepec de Morelos, Tlalnepantla de Baz",2,Naranja,56
+15,17,276010,61866.0,196,0.4705,0.5846,36169.4835,0,"Nezahualcóyotl, Ecatepec de Morelos",1,Amarillo,60
+15,18,357794,99078.0,148,0.3826,0.4735,46909.8451,0,"Huixquilucan, Otzolotepec, Xonacatlán, Jilotzingo",0,Verde,39
+15,19,410046,87114.0,302,0.4171,0.5208,45366.7326,0,Tlalnepantla de Baz,1,Amarillo,89
+15,20,240170,64993.0,158,0.4396,0.518,33668.0123,0,"Tecámac, Jaltenco, Nextlalpan, Tonanitla",1,Amarillo,36
+15,21,308615,87557.0,177,0.4213,0.5088,44547.2132,7,"Ixtapaluca, Amecameca, Tlalmanalco, Atlautla",1,Amarillo,49
+15,22,359558,84299.0,225,0.4339,0.5559,46862.8691,8,"Naucalpan de Juárez, Atizapán de Zaragoza",1,Amarillo,36
+15,23,315875,88998.0,131,0.4085,0.4982,44338.693,3,"Lerma, Tianguistenco, Ocoyoacac, Capulhuac",1,Amarillo,40
+15,24,409678,109463.0,265,0.5104,0.6133,67128.498,8,Naucalpan de Juárez,2,Naranja,82
+15,25,301700,88599.0,105,0.5706,0.6729,59621.6915,34,Chimalhuacán,2,Naranja,32
+15,26,339037,96727.0,138,0.4695,0.5732,55444.6918,4,Toluca,1,Amarillo,35
+15,27,362394,94905.0,138,0.3739,0.4602,43677.1656,0,"Metepec, San Mateo Atenco, Calimaya, San Antonio la Isla",0,Verde,34
+15,28,270632,74875.0,96,0.4821,0.5739,42971.1678,9,"Zumpango, Hueypoxtla, Apaxco, Tequixquiac",1,Amarillo,19
+15,29,354150,85465.0,288,0.4694,0.5686,48594.6512,1,Nezahualcóyotl,1,Amarillo,109
+15,30,285205,87160.0,115,0.5483,0.6376,55575.27,25,"Chicoloapan, Chimalhuacán",2,Naranja,29
+15,31,366193,90569.0,274,0.4847,0.5778,52328.7507,1,Nezahualcóyotl,1,Amarillo,106
+15,32,282756,80304.0,117,0.528,0.6274,50383.8421,4,Valle de Chalco Solidaridad,2,Naranja,44
+15,33,289757,84072.0,77,0.5473,0.6453,54252.5624,12,Chalco,2,Naranja,18
+15,34,380819,97442.0,176,0.4281,0.5247,51124.0087,0,Toluca,1,Amarillo,35
+15,35,343268,100488.0,186,0.4408,0.5357,53829.3489,8,"Tenancingo, Tenango del Valle, Villa Guerrero, Coatepec Harinas",1,Amarillo,53
+15,36,321527,94181.0,282,0.3951,0.4991,47007.4994,0,"Tejupilco, Valle de Bravo, Tlatlaya, Amatepec",0,Verde,66
+15,37,335382,96606.0,148,0.4771,0.5732,55370.6587,15,"Huehuetoca, Tepotzotlán, Teoloyucan, Villa del Carbón",1,Amarillo,35
+15,38,294653,81375.0,109,0.4905,0.5952,48430.4827,6,"Texcoco, Atenco, Chiconcuac",1,Amarillo,31
+15,39,287538,82833.0,118,0.5282,0.6298,52168.2093,16,"La Paz, Chimalhuacán",2,Naranja,31
+15,40,364313,108002.0,140,0.4561,0.5538,59811.9219,2,"Almoloya de Juárez, Zinacantepec, Temoaya, Otzolotepec",1,Amarillo,37
+16,1,309749,82560.0,215,0.5065,0.617,50935.7656,35,"Lázaro Cárdenas, La Huacana, Múgica, ARío",2,Naranja,47
+16,2,316105,85586.0,245,0.5708,0.6665,57046.0933,117,"Apatzingán, Los Reyes, Buenavista, Coalcomán de Vázquez Pallares",2,Naranja,60
+16,3,363969,103120.0,272,0.4727,0.5784,59648.3125,31,"Zitácuaro, Maravatío, Tuzantla, Tuxpan",1,Amarillo,64
+16,4,320641,77001.0,274,0.5225,0.5873,45225.0522,59,"Sahuayo, Jacona, Jiquilpan, Venustiano Carranza",2,Naranja,57
+16,5,364048,86211.0,281,0.5696,0.6458,55674.262,98,"Zamora, La Piedad, Penjamillo, Yurécuaro",2,Naranja,42
+16,6,351636,91294.0,269,0.476,0.5486,50082.7619,21,"Hidalgo, Tarímbaro, Zinapécuaro, Cuitzeo",1,Amarillo,65
+16,7,392156,92517.0,319,0.5002,0.5615,51949.2041,69,"Zacapu, Puruándiro, Coeneo, Tangancícuaro",2,Naranja,73
+16,8,331598,86001.0,175,0.547,0.6391,54966.5174,45,Morelia,2,Naranja,30
+16,9,323831,88123.0,187,0.5139,0.6224,54845.0695,23,"Uruapan, Nuevo Parangaricutiro, Taretan, Ziracuaretiro",2,Naranja,39
+16,10,339963,84317.0,214,0.4968,0.604,50925.1307,30,Morelia,1,Amarillo,32
+16,11,335289,90386.0,298,0.4736,0.5703,51546.0039,23,"Huetamo, Pátzcuaro, Tacámbaro, Turicato",1,Amarillo,60
+17,1,320100,74887.0,209,0.4895,0.5993,44881.3994,4,Cuernavaca,1,Amarillo,48
+17,2,346469,90498.0,153,0.5244,0.6243,56497.321,18,"Jiutepec, Temixco, Emiliano Zapata, Cuernavaca",2,Naranja,42
+17,3,307110,80791.0,196,0.4786,0.5832,47119.6567,11,"Cuautla, Ayala, Axochiapan, Tepalcingo",1,Amarillo,49
+17,4,313240,80696.0,221,0.4545,0.5553,44807.9549,11,"Jojutla, Tlaltizapán de Zapata, Zacatepec, Puente de Ixtla",1,Amarillo,53
+17,5,262687,70613.0,163,0.4232,0.5111,36090.8498,10,"Yautepec, Tepoztlán, Yecapixtla, Atlatlahucan",1,Amarillo,47
+18,1,273312,67854.0,405,0.3948,0.5147,34921.6796,0,"Santiago Ixcuintla, Tecuala, Acaponeta, San Blas",0,Verde,97
+18,2,328603,83732.0,311,0.494,0.6095,51035.3855,20,Tepic,1,Amarillo,82
+18,3,348738,89296.0,281,0.5117,0.6251,55814.4998,35,"Compostela, Bahía de Banderas, Xalisco, Ixtlán del Río",2,Naranja,39
+19,1,348743,90367.0,169,0.4483,0.5439,49149.1095,20,"Santa Catarina, San Pedro Garza García",1,Amarillo,35
+19,2,332273,93440.0,213,0.4986,0.5872,54868.9915,29,Apodaca,1,Amarillo,45
+19,3,338087,100021.0,162,0.5812,0.6689,66902.3635,84,Gral. Escobedo,3,Rojo,38
+19,4,367629,80890.0,251,0.413,0.4766,38553.0118,11,"San Nicolás de los Garza, Gral. Escobedo",1,Amarillo,72
+19,5,322351,90007.0,157,0.5332,0.6224,56020.0691,30,Monterrey,2,Naranja,43
+19,6,320508,69667.0,273,0.3858,0.4639,32317.5619,4,Monterrey,0,Verde,60
+19,7,247932,76410.0,144,0.6148,0.7149,54622.0839,80,García,3,Rojo,23
+19,8,331045,95766.0,185,0.4988,0.5837,55895.6191,12,"Apodaca, Guadalupe",1,Amarillo,52
+19,9,315044,79425.0,272,0.4558,0.5292,42028.1884,39,"Linares, Montemorelos, Dr. Arroyo, Galeana",1,Amarillo,37
+19,10,320471,74212.0,322,0.4222,0.5093,37793.4891,11,Monterrey,1,Amarillo,61
+19,11,374065,85502.0,225,0.4638,0.5533,47305.46,12,Guadalupe,1,Amarillo,53
+19,12,302939,95965.0,172,0.6047,0.6967,66858.5733,81,Juárez,3,Rojo,27
+19,13,248118,70769.0,143,0.5297,0.6226,44060.8047,34,"Salinas Victoria, Sabinas Hidalgo, Ciénega de Flores, Anáhuac",2,Naranja,13
+19,14,297066,83645.0,224,0.5684,0.6684,55910.7303,79,"Cadereyta Jiménez, Pesquería, Gral. Zuazua, China",2,Naranja,32
+20,1,316924,81323.0,260,0.3624,0.5078,41292.7468,7,"San Juan Bautista Tuxtepec, Acatlán de Pérez Figueroa, Loma Bonita, San Miguel Soyaltepec",0,Verde,71
+20,2,283531,72616.0,246,0.3742,0.4979,36156.7546,16,"Huautla de Jiménez, Santa María Chilchotla, San José Tenango, San Juan Bautista Cuicatlán",0,Verde,59
+20,3,353364,94379.0,289,0.4627,0.5723,54016.0512,36,"Heroica Ciudad de Huajuapan de León, Santa Cruz Xoxocotlán, Santiago Chazumba, San Miguel Amatitlán",1,Amarillo,43
+20,4,342844,83676.0,302,0.5318,0.6673,55835.081,104,"San Juan Guichicovi, Ocotlán de Morelos, San Juan Cotzocón, Tlacolula de Matamoros",2,Naranja,69
+20,5,283156,73550.0,208,0.4129,0.5404,39745.3079,24,"Salina Cruz, Santo Domingo Tehuantepec, Santa María Huatulco, San Carlos Yautepec",1,Amarillo,50
+20,6,288917,78621.0,307,0.4866,0.6403,50343.7704,58,"Heroica Ciudad de Tlaxiaco, Santiago Juxtlahuaca, Putla Villa de Guerrero, Silacayoápam",1,Amarillo,59
+20,7,267479,65662.0,224,0.3564,0.4766,31295.0181,0,"Heroica Ciudad de Juchitán de Zaragoza, Matías Romero Avendaño, Ciudad Ixtepec, Asunción Ixtaltepec",0,Verde,57
+20,8,352029,87618.0,228,0.462,0.5763,50497.633,8,"Oaxaca de Juárez, Santa Lucia del Camino, Santa María Atzompa, San Sebastián Tutla",1,Amarillo,57
+20,9,297172,84957.0,200,0.4208,0.5882,49973.8246,17,"Santiago Pinotepa Nacional, Villa de Tututepec, San Pedro Mixtepec, Santiago Jamiltepec",1,Amarillo,55
+20,10,331255,96518.0,273,0.4906,0.6248,60304.2671,75,"Miahuatlán de Porfirio Díaz, Heroica Ciudad de Ejutla de Crespo, San Pedro Pochutla, Zimatlán de Álvarez",1,Amarillo,69
+21,1,300624,86671.0,195,0.3659,0.4855,42082.963,0,"Huauchinango, Xicotepec, Venustiano Carranza, Pahuatlán",0,Verde,47
+21,2,299717,85753.0,194,0.3206,0.419,35931.6886,0,"Zacatlán, Chignahuapan, Ixtacamaxtitlán, Tetela de Ocampo",0,Verde,48
+21,3,307445,88371.0,200,0.3829,0.496,43830.284,0,"Teziutlán, Zacapoaxtla, Tlatlauquitepec, Cuetzalan del Progreso",0,Verde,47
+21,4,297939,91283.0,171,0.338,0.4284,39106.6499,1,"Xiutetelco, Tlachichuca, Chignautla, Libres",0,Verde,49
+21,5,313738,91868.0,150,0.4781,0.5567,51138.8719,17,"San Martín Texmelucan, Huejotzingo, Tlahuapan, San Salvador El Verde",1,Amarillo,44
+21,6,332207,93098.0,156,0.5448,0.6464,60177.5224,22,Puebla,2,Naranja,21
+21,7,282616,89154.0,119,0.4345,0.506,45115.9423,2,"Tepeaca, Amozoc, Acajete, Tecali de Herrera",1,Amarillo,34
+21,8,280666,87956.0,143,0.4175,0.5043,44351.8991,0,"Tecamachalco, Chalchicomula de Sesma, Acatzingo, Palmar de Bravo",1,Amarillo,43
+21,9,372492,95275.0,256,0.5001,0.6141,58509.4894,24,"Puebla, Cuautlancingo",2,Naranja,53
+21,10,325600,92033.0,114,0.4571,0.5389,49592.9907,7,"San Pedro Cholula, San Andrés Cholula, Cuautlancingo, San Gregorio Atzompa",1,Amarillo,28
+21,11,325582,86805.0,179,0.5074,0.6143,53328.5634,20,Puebla,2,Naranja,44
+21,12,341370,90380.0,226,0.5151,0.6341,57313.5767,27,Puebla,2,Naranja,31
+21,13,291074,84239.0,178,0.4625,0.5618,47327.6684,14,"Atlixco, Coronango, Huaquechula, Tochimilco",1,Amarillo,48
+21,14,307227,80547.0,241,0.4118,0.5064,40791.9976,2,"Izúcar de Matamoros, Chietla, Acatlán, Chiautla",1,Amarillo,52
+21,15,304484,91457.0,134,0.4964,0.5859,53587.9881,6,"Tehuacán, Cañada Morelos, Tepanco de López, Santiago Miahuatlán",1,Amarillo,31
+21,16,295892,89323.0,194,0.3401,0.4363,38968.8408,0,"Ajalpan, Tlacotepec de Benito Juárez, Coxcatlán, Tepexi de Rodríguez",0,Verde,52
+22,1,320297,93473.0,196,0.4208,0.5114,47799.1846,4,"Cadereyta de Montes, Tequisquiapan, Colón, Pinal de Amoles",1,Amarillo,54
+22,2,288837,80884.0,155,0.5132,0.6186,50037.4465,16,"San Juan del Río, Amealco de Bonfil",2,Naranja,39
+22,3,347196,91076.0,193,0.4921,0.5981,54473.4806,22,Querétaro,1,Amarillo,44
+22,4,365423,91367.0,183,0.4605,0.565,51623.5199,9,"Querétaro, Corregidora",1,Amarillo,31
+22,5,266974,75088.0,96,0.4823,0.5912,44391.4134,7,"El Marqués, Pedro Escobedo, Huimilpan",1,Amarillo,21
+22,6,310326,87369.0,130,0.5576,0.6601,57673.3563,45,Querétaro,2,Naranja,23
+23,1,383964,107579.0,245,0.5787,0.6613,71147.2881,164,"Solidaridad, Cozumel, Lázaro Cárdenas, Puerto Morelos",2,Naranja,49
+23,2,351466,99990.0,293,0.483,0.5738,57375.9636,32,"Othón P. Blanco, Tulum, Felipe Carrillo Puerto, Bacalar",1,Amarillo,70
+23,3,393932,114002.0,333,0.5967,0.6909,78759.5361,192,"Benito Juárez, Isla Mujeres",3,Rojo,90
+23,4,330709,91319.0,210,0.6034,0.7043,64313.8808,94,Benito Juárez,3,Rojo,36
+24,1,299961,80357.0,339,0.4118,0.4972,39951.4262,5,"Matehuala, Mexquitic De Carmona, Villa de Ramos, Moctezuma",1,Amarillo,61
+24,2,277195,79564.0,151,0.46,0.5493,43707.6088,0,"Soledad de Graciano Sánchez, Zaragoza, Armadillo de los Infante, Cerro de San Pedro",1,Amarillo,32
+24,3,296791,76855.0,329,0.4323,0.5064,38915.8821,9,"Rioverde, Villa de Reyes, Ciudad Fernández, Guadalcázar",1,Amarillo,64
+24,4,325250,82300.0,331,0.4025,0.5145,42343.7866,0,"Ciudad Valles, Tamuín, Ebano, Ciudad del Maíz",1,Amarillo,66
+24,5,348308,91083.0,209,0.4318,0.5354,48767.9029,13,San Luis Potosí,1,Amarillo,29
+24,6,340355,92191.0,185,0.4604,0.5563,51284.8541,4,San Luis Potosí,1,Amarillo,29
+24,7,297610,85070.0,285,0.3243,0.4681,39824.7671,1,"Tamazunchale, Xilitla, Aquismón, Axtla De Terrazas",0,Verde,77
+25,1,325200,86425.0,470,0.539,0.6658,57542.5818,66,"Mazatlán, Rosario, Escuinapa, Concordia",2,Naranja,68
+25,2,357684,93369.0,484,0.5023,0.6334,59139.6925,22,"Ahome, Juan José Ríos",2,Naranja,75
+25,3,341463,86908.0,761,0.4737,0.606,52663.4556,26,"Sinaloa, Navolato, Salvador Alvarado, Mocorito",1,Amarillo,129
+25,4,323663,82478.0,676,0.468,0.6112,50408.6298,8,"Guasave, El Fuerte, Choix, Juan José Ríos",1,Amarillo,151
+25,5,337395,89155.0,379,0.5012,0.6154,54868.0654,33,Culiacán,2,Naranja,35
+25,6,342625,87238.0,556,0.4987,0.6227,54323.4941,55,"Mazatlán, Culiacán, Elota, Eldorado",1,Amarillo,101
+25,7,332589,89851.0,485,0.5488,0.6641,59671.3721,100,Culiacán,2,Naranja,49
+26,1,321908,81343.0,185,0.639,0.7338,59686.7857,127,"San Luis Río Colorado, Caborca, Puerto Peñasco, General Plutarco Elías Calles",3,Rojo,25
+26,2,374524,102688.0,231,0.6255,0.7261,74558.2709,159,"Nogales, Agua Prieta, Cananea, Magdalena",3,Rojo,39
+26,3,332319,91859.0,211,0.5983,0.7147,65652.8314,104,Hermosillo,3,Rojo,37
+26,4,303131,76049.0,277,0.4935,0.6113,46486.6165,67,"Guaymas, Empalme, Santa Ana, Ures",1,Amarillo,51
+26,5,348808,90350.0,225,0.5385,0.6596,59593.2,70,Hermosillo,2,Naranja,34
+26,6,330861,82361.0,237,0.5764,0.7046,58032.2608,92,Cajeme,2,Naranja,36
+26,7,279462,72666.0,207,0.5062,0.6414,46610.5138,22,"Navojoa, Huatabampo, Etchojoa, Alamos",2,Naranja,48
+27,1,261035,69142.0,213,0.4553,0.5566,38482.769,26,"Macuspana, Tenosique, Balancán, Jonuta",1,Amarillo,48
+27,2,319200,90799.0,221,0.4937,0.6014,54605.0925,9,"Cárdenas, Huimanguillo",1,Amarillo,65
+27,3,263461,72879.0,160,0.4266,0.5223,38063.3626,0,"Comalcalco, Cunduacán",1,Amarillo,53
+27,4,327564,79595.0,225,0.5136,0.6259,49814.8636,17,Centro,2,Naranja,52
+27,5,331667,90292.0,199,0.421,0.5042,45523.0292,3,"Centla, Nacajuca, Paraíso, Jalpa de Méndez",1,Amarillo,58
+27,6,308583,81199.0,164,0.5079,0.599,48642.0907,19,"Centro, Jalapa, Tacotalpa, Teapa",2,Naranja,37
+28,1,340557,91094.0,217,0.5071,0.5713,52037.6067,5,Nuevo Laredo,2,Naranja,31
+28,2,335733,87938.0,260,0.5528,0.6573,57798.234,63,Reynosa,2,Naranja,57
+28,3,353172,85885.0,319,0.4683,0.5639,48433.792,16,"Río Bravo, Matamoros, San Fernando, Valle Hermoso",1,Amarillo,42
+28,4,358262,92638.0,203,0.5497,0.651,60303.0685,29,Matamoros,2,Naranja,30
+28,5,353665,88267.0,271,0.3792,0.5006,44183.0805,2,"Victoria, Hidalgo, Tula, Llera",0,Verde,42
+28,6,378809,93011.0,282,0.4361,0.5586,51955.2099,7,"Altamira, El Mante, González, Aldama",1,Amarillo,48
+28,7,300835,82436.0,237,0.5615,0.6672,54997.9979,59,"Reynosa, Miguel Alemán, Camargo, Gustavo Díaz Ordaz",2,Naranja,36
+28,8,427949,97492.0,309,0.4205,0.5365,52307.4202,0,"Tampico, Ciudad Madero",1,Amarillo,82
+29,1,341255,98923.0,241,0.3504,0.4311,42641.7326,2,"Huamantla, Apizaco, Tlaxco, Atltzayanca",0,Verde,52
+29,2,358575,97889.0,226,0.3558,0.4364,42715.0413,1,"Tlaxcala, Ixtacuixtla de Mariano Matamoros, Calpulalpan, Panotla",0,Verde,57
+29,3,342866,100321.0,162,0.3145,0.3841,38534.0532,0,"Chiautempan, San Pablo del Monte, Contla de Juan Cuamatzi, Zacatelco",0,Verde,47
+30,1,312826,75707.0,355,0.3437,0.5245,39709.541,0,"Pánuco, Tantoyuca, Pueblo Viejo, Tempoal",0,Verde,88
+30,2,301316,71284.0,302,0.3499,0.5305,37814.7955,0,"Álamo Temapache, Chicontepec, Ixhuatlán de Madero, Cerro Azul",0,Verde,84
+30,3,328966,80024.0,250,0.4104,0.5471,43781.0015,0,"Cosoleacaque, Acayucan, San Juan Evangelista, Playa Vicente",1,Amarillo,67
+30,4,311511,70123.0,236,0.4192,0.5408,37919.4596,1,"Veracruz, Boca del Río",1,Amarillo,42
+30,5,348609,81065.0,261,0.437,0.5787,46911.3978,0,"Poza Rica de Hidalgo, Tuxpan, Tihuatlán, Tamiahua",1,Amarillo,64
+30,6,309828,76645.0,253,0.3729,0.5184,39734.2035,0,"Papantla, Coatzintla, Tecolutla, Gutiérrez Zamora",0,Verde,72
+30,7,326271,90873.0,282,0.4301,0.5658,51411.5472,1,"Martínez de la Torre, Misantla, Atzalan, Tlapacoyan",1,Amarillo,65
+30,8,331544,80460.0,309,0.355,0.4785,38501.8269,0,"Actopan, Emiliano Zapata, Alto Lucero de Gutiérrez Barios, Paso de Ovejas",0,Verde,75
+30,9,315538,88742.0,193,0.3734,0.4867,43192.0089,0,"Coatepec, Perote, Xico, Banderilla",0,Verde,54
+30,10,394200,97148.0,268,0.406,0.5232,50830.7442,1,Xalapa,1,Amarillo,50
+30,11,317641,72760.0,288,0.4253,0.5511,40101.0454,1,"Coatzacoalcos, Agua Dulce, Nanchital de Lázaro Cárdenas del Río, Moloacán",1,Amarillo,77
+30,12,297179,68196.0,237,0.4603,0.5831,39762.8327,2,Veracruz,1,Amarillo,31
+30,13,290807,73759.0,197,0.3727,0.4962,36602.5555,2,"Medellín de Bravo, Huatusco, Soledad De Doblado, Atoyac",0,Verde,57
+30,14,296353,73210.0,264,0.4056,0.5488,40179.9031,2,"Minatitlán, Las Choapas, Jáltipan, Jesús Carranza",1,Amarillo,73
+30,15,298440,82756.0,213,0.3774,0.5042,41728.981,0,"Orizaba, Río Blanco, Coscomatepec, Mariano Escobedo",0,Verde,46
+30,16,334512,82569.0,234,0.3965,0.5242,43286.1852,0,"Córdoba, Ixtaczoquitlán, Fortín, Amatlán de los Reyes",0,Verde,54
+30,17,331447,73546.0,342,0.3923,0.532,39126.484,0,"Tierra Blanca, Cosamaloapan, Alvarado, Tres Valles",0,Verde,97
+30,18,305266,90021.0,218,0.3671,0.4975,44782.3828,0,"Tezonapa, Zongolica, Nogales, Omealca",0,Verde,60
+30,19,328263,85185.0,236,0.4364,0.5832,49680.3918,15,"San Andrés Tuxtla, Santiago Tuxtla, Hueyapan de Ocampo, Catemaco",1,Amarillo,64
+31,1,275109,82536.0,197,0.2566,0.3206,26459.9527,0,"Tizimín, Valladolid, Peto, Chemax",0,Verde,41
+31,2,310611,77941.0,246,0.2342,0.2803,21846.8715,0,"Progreso, Motul, Izamal, Tecoh",0,Verde,45
+31,3,298748,77044.0,209,0.4967,0.6003,46249.1169,16,Mérida,1,Amarillo,27
+31,4,287276,68643.0,145,0.4221,0.5159,35415.3226,2,Mérida,1,Amarillo,25
+31,5,310091,84845.0,187,0.2806,0.3405,28891.18,1,"Tekax, Umán, Hunucmá, Oxkutzcab",0,Verde,44
+31,6,284242,70450.0,178,0.4793,0.5811,40935.2516,3,"Mérida, Kanasín",1,Amarillo,27
+32,1,318108,83616.0,468,0.4745,0.5777,48307.2338,14,"Fresnillo, Sombrerete, Valparaíso, Sain Alto",1,Amarillo,76
+32,2,344657,79393.0,572,0.4487,0.4905,38939.2698,28,"Jerez, Villanueva, Ojocaliente, Nochistlán de Mejía",1,Amarillo,98
+32,3,319275,82790.0,428,0.4043,0.4997,41367.6377,0,"Zacatecas, Río Grande, Mazapil, Villa de Cos",1,Amarillo,78
+32,4,283899,78447.0,318,0.4069,0.5096,39976.3209,4,"Guadalupe, Pinos, General Pánfilo Natera, Villa Hidalgo",1,Amarillo,64
